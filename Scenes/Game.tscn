@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceeflcvylasqu"]
+[gd_scene load_steps=3 format=3 uid="uid://ceeflcvylasqu"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Game.gd" id="1_64rdn"]
+[ext_resource type="TileSet" uid="uid://bbm37strpelug" path="res://Assets/Textures/Tilemaps/TileSet.tres" id="2_80uk1"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_64rdn")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_80uk1")
+format = 2
