@@ -1,0 +1,78 @@
+{
+	"categories": [
+		{
+			"uuid": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"title": "Task",
+			"color": "70bafa"
+		},
+		{
+			"uuid": "b6490a10-0b8c-46c9-a930-008e66026688",
+			"title": "Info",
+			"color": "02ef0c"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "edb04a9e-aac6-417a-8faa-2b8e3ff2bb62",
+			"title": "Todo",
+			"tasks": [
+				"c869bd62-fe7c-495e-af5b-99e499119ebc",
+				"0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
+				"72d16102-d53b-4058-a34d-ce95794c10e9"
+			]
+		},
+		{
+			"uuid": "503e1b3a-3ee8-4377-b4f1-4d0398e0ec96",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "7eb83d3e-44c7-4b01-b02e-5c4b72692a27",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "c869bd62-fe7c-495e-af5b-99e499119ebc",
+			"title": "Items",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": []
+		},
+		{
+			"uuid": "0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
+			"title": "Entities",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": []
+		},
+		{
+			"uuid": "72d16102-d53b-4058-a34d-ce95794c10e9",
+			"title": "Levels",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": []
+		},
+		{
+			"uuid": "12b302c3-5b34-4c34-a9f9-f263d73b2545",
+			"title": "New task",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"edb04a9e-aac6-417a-8faa-2b8e3ff2bb62"
+			],
+			[
+				"503e1b3a-3ee8-4377-b4f1-4d0398e0ec96"
+			],
+			[
+				"7eb83d3e-44c7-4b01-b02e-5c4b72692a27"
+			]
+		]
+	}
+}

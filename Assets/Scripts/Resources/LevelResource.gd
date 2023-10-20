@@ -4,4 +4,5 @@ class_name Level_Resource
 
 @export var Name : String
 @export var Tileset : TileSet
-@export var Tiles : Array[int]
+@export var Tiles : TileMap
+@export var WaveData : Wave_Resource

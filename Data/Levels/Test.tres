@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Level_Resource" load_steps=2 format=3 uid="uid://u3hwgkma42ub"]
-
-[ext_resource type="Script" path="res://Assets/Scripts/Resources/LevelResource.gd" id="1_osen3"]
-
-[resource]
-script = ExtResource("1_osen3")
-Name = "Test"
-Tiles = Array[int]([])

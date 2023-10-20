@@ -1,23 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://quii2duuw7uf"]
+[gd_scene load_steps=3 format=3 uid="uid://quii2duuw7uf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Menus/LevelInfo.gd" id="1_7wu8s"]
 
-[node name="LevelInfo" type="Control" node_paths=PackedStringArray("Title")]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iicnu"]
+bg_color = Color(0.811765, 0.490196, 0.556863, 1)
+
+[node name="LevelInfo" type="Panel" node_paths=PackedStringArray("Title", "View")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 485.0
+offset_top = 210.0
+offset_right = -500.0
+offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iicnu")
 script = ExtResource("1_7wu8s")
-Title = NodePath("Panel/HBoxContainer/VBoxContainer/Text")
+Title = NodePath("HBoxContainer/VBoxContainer/Text")
+Text = "Test"
+View = NodePath("HBoxContainer/VBoxContainer/ViewContainer/View")
+metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 102.0
-offset_bottom = 154.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,13 +30,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Text" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="ViewContainer" type="SubViewportContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="View" type="SubViewport" parent="HBoxContainer/VBoxContainer/ViewContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(80, 80)
+render_target_update_mode = 4
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "MAP NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
