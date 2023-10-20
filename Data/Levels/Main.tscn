@@ -7,4 +7,5 @@
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_dmfqj")
 format = 2
+layer_0/z_index = -1
 layer_0/tile_data = PackedInt32Array(-1, 131073, 3, -65536, 131073, 3, 65535, 131073, 5, 0, 131073, 5)

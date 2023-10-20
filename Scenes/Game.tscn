@@ -1,11 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceeflcvylasqu"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Game.gd" id="1_64rdn"]
-[ext_resource type="TileSet" uid="uid://bbm37strpelug" path="res://Assets/Textures/Tilemaps/TileSet.tres" id="2_80uk1"]
+[ext_resource type="Resource" uid="uid://okqkxi707kx0" path="res://Data/Entities/Player.tres" id="2_revkp"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_64rdn")
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_80uk1")
-format = 2
+PlayerData = ExtResource("2_revkp")

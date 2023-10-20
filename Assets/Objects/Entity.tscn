@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d17i5tkkx1gc"]
+[gd_scene load_steps=3 format=3 uid="uid://d17i5tkkx1gc"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Objects/Entity.gd" id="1_jbm1s"]
+[ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://Assets/Textures/Sprites/Worm/Worm.tres" id="2_52sgh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqsqe"]
+radius = 35.0571
 
 [node name="Entity" type="Area2D"]
-script = ExtResource("1_jbm1s")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-animation = &""
+sprite_frames = ExtResource("2_52sgh")
+animation = &"Idle"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oqsqe")

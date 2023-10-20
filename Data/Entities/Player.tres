@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="Entity_Resource" load_steps=3 format=3 uid="uid://okqkxi707kx0"]
+[gd_resource type="Resource" script_class="entity_resource" load_steps=5 format=3 uid="uid://okqkxi707kx0"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Resources/EntityResource.gd" id="1_b10ok"]
 [ext_resource type="Script" path="res://Assets/Scripts/Objects/Player.gd" id="1_eaadf"]
+[ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://Assets/Textures/Sprites/Worm/Worm.tres" id="3_mpyea"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xlsc6"]
 
 [resource]
 script = ExtResource("1_b10ok")
-Name = "Player"
-Health = 100.0
-Speed = 400.0
-EntityScript = ExtResource("1_eaadf")
+name = "Player"
+health = 100.0
+speed = 400.0
+logic = ExtResource("1_eaadf")
+shape = SubResource("CapsuleShape2D_xlsc6")
+sprite_frames = ExtResource("3_mpyea")

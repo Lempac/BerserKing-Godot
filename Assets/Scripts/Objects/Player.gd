@@ -2,7 +2,6 @@ extends Area2D
 
 @export var speed = 400
 @export var speed_multiplyer = 1
-var health := Health.new(100)
 var screen_size
 
 func _process(delta):
