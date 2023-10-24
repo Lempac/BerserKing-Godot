@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbaq07vgeq1d2"
+path="res://.godot/imported/MI_SFX 29.mp3-5227797c59f12517ee067a56c7df9271.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Sounds/MI_SFX 29.mp3"
+dest_files=["res://.godot/imported/MI_SFX 29.mp3-5227797c59f12517ee067a56c7df9271.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
