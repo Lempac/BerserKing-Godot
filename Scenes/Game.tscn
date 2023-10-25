@@ -1,8 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceeflcvylasqu"]
+[gd_scene load_steps=7 format=3 uid="uid://ceeflcvylasqu"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Game.gd" id="1_64rdn"]
 [ext_resource type="Resource" uid="uid://okqkxi707kx0" path="res://Data/Entities/Player.tres" id="2_revkp"]
+[ext_resource type="Script" path="res://Assets/Scripts/Objects/Player.gd" id="3_4um63"]
+[ext_resource type="SpriteFrames" uid="uid://ds6hg4dcgtowg" path="res://Assets/Textures/Sprites/Player/Player.tres" id="4_scwwh"]
+[ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://Assets/Textures/Sprites/Worm/Worm.tres" id="5_a3nnp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt8wd"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_64rdn")
 PlayerData = ExtResource("2_revkp")
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("3_4um63")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_nt8wd")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = ExtResource("4_scwwh")
+animation = &"death"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Worm" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worm"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Worm"]
+sprite_frames = ExtResource("5_a3nnp")
+animation = &"Attack"
+frame = 1
