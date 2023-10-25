@@ -18,7 +18,10 @@
 			"tasks": [
 				"c869bd62-fe7c-495e-af5b-99e499119ebc",
 				"0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
-				"72d16102-d53b-4058-a34d-ce95794c10e9"
+				"72d16102-d53b-4058-a34d-ce95794c10e9",
+				"ab48b4f0-6e4e-4bcc-996e-b66ed3183ed9",
+				"86bd9360-205b-4c10-880c-501b56f1bc03",
+				"3ba5149f-8c8d-40fa-8ead-1d5a6c1f0a76"
 			]
 		},
 		{
@@ -57,6 +60,32 @@
 		{
 			"uuid": "12b302c3-5b34-4c34-a9f9-f263d73b2545",
 			"title": "New task",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": []
+		},
+		{
+			"uuid": "ab48b4f0-6e4e-4bcc-996e-b66ed3183ed9",
+			"title": "health/damage system",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": [
+				{
+					"details": "health bar",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "86bd9360-205b-4c10-880c-501b56f1bc03",
+			"title": "more enemies",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": []
+		},
+		{
+			"uuid": "3ba5149f-8c8d-40fa-8ead-1d5a6c1f0a76",
+			"title": "weapons",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
 			"steps": []
