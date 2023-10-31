@@ -1,6 +1,6 @@
 extends Node
 
-@export var PlayerData : entity_resource
+@export var PlayerData : Entity_Resource
 
 func _ready():
 	var levelData : Camera2D = load(Global.CurrentLevel).instantiate()
@@ -11,3 +11,6 @@ func _ready():
 	self.add_child(levelData.get_child(0).duplicate())
 	var cam = Camera2D.new()
 	player.add_child(cam)
+	
+func Gen():
+	pass

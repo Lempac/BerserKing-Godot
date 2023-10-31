@@ -1,6 +1,6 @@
 extends Resource
 
-class_name entity_resource
+class_name Entity_Resource
 
 @export var name : String
 @export var health : float
