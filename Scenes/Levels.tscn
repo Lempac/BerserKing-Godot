@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://buraepk6fc5ec"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Menus/Levels.gd" id="1_c0mr6"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scenes/Levels.gd" id="1_04720"]
 [ext_resource type="PackedScene" uid="uid://quii2duuw7uf" path="res://Assets/Objects/LevelInfo.tscn" id="2_4mkpp"]
 
 [node name="Levels" type="Control" node_paths=PackedStringArray("Levels")]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_c0mr6")
+script = ExtResource("1_04720")
 Levels = NodePath("Panel/HBoxContainer/VBoxContainer/Levels")
 LevelDataPath = "res://Data/Levels/"
 LevelIcon = ExtResource("2_4mkpp")

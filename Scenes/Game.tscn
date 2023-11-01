@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceeflcvylasqu"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Game.gd" id="1_64rdn"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scenes/Game.gd" id="1_63c7c"]
 [ext_resource type="Resource" uid="uid://okqkxi707kx0" path="res://Data/Entities/Player.tres" id="2_revkp"]
 
 [node name="Game" type="Node"]
-script = ExtResource("1_64rdn")
+script = ExtResource("1_63c7c")
 PlayerData = ExtResource("2_revkp")
