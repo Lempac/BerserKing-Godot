@@ -6,7 +6,6 @@
 radius = 35.0571
 
 [node name="Entity" type="Area2D"]
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_52sgh")
