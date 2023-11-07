@@ -1,6 +1,6 @@
 extends Resource
 
-class_name Item_Resource
+class_name ItemResource
 
 @export var Name : String
 @export var Anim : String

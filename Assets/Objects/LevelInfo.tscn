@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://quii2duuw7uf"]
+[gd_scene load_steps=2 format=3 uid="uid://quii2duuw7uf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Menus/LevelInfo.gd" id="1_7wu8s"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iicnu"]
-bg_color = Color(0.811765, 0.490196, 0.556863, 1)
-
-[node name="LevelInfo" type="Panel" node_paths=PackedStringArray("Title", "View")]
+[node name="LevelInfo" type="Panel" node_paths=PackedStringArray("Title")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,11 +12,8 @@ offset_right = -500.0
 offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_iicnu")
 script = ExtResource("1_7wu8s")
 Title = NodePath("HBoxContainer/VBoxContainer/Text")
-Text = "Test"
-View = NodePath("HBoxContainer/VBoxContainer/ViewContainer/View")
 metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -34,17 +28,6 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-
-[node name="ViewContainer" type="SubViewportContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="View" type="SubViewport" parent="HBoxContainer/VBoxContainer/ViewContainer"]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(80, 80)
-render_target_update_mode = 4
 
 [node name="Text" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2

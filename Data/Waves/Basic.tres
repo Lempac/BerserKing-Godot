@@ -1,14 +1,7 @@
-[gd_resource type="Resource" script_class="Wave_Resource" load_steps=5 format=3 uid="uid://cxu6jvgyvtxvf"]
+[gd_resource type="Resource" script_class="WaveResource" load_steps=2 format=3 uid="uid://cxu6jvgyvtxvf"]
 
-[ext_resource type="Resource" uid="uid://okqkxi707kx0" path="res://Data/Entities/Player.tres" id="1_l0dlv"]
-[ext_resource type="Script" path="res://Assets/Scripts/Resources/WaveEntryResource.gd" id="2_30jt6"]
-[ext_resource type="Script" path="res://Assets/Scripts/Resources/WaveResource.gd" id="3_qir2e"]
-
-[sub_resource type="Resource" id="Resource_6vci5"]
-script = ExtResource("2_30jt6")
-Amount = 1
-Entity = ExtResource("1_l0dlv")
+[ext_resource type="Script" path="res://Assets/Scripts/Classes/Resources/WaveResource.gd" id="3_ea65x"]
 
 [resource]
-script = ExtResource("3_qir2e")
-Data = Array[ExtResource("2_30jt6")]([SubResource("Resource_6vci5")])
+script = ExtResource("3_ea65x")
+Data = Array[Resource("res://Assets/Scripts/Classes/Resources/WaveEntryResource.gd")]([null])

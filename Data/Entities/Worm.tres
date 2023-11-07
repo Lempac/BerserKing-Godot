@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="entity_resource" load_steps=4 format=3 uid="uid://mof0r0doax75"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Resources/EntityResource.gd" id="1_r2x62"]
+[ext_resource type="Script" path="res://Assets/Scripts/Classes/Resources/EntityResource.gd" id="1_r2x62"]
 [ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://Assets/Textures/Sprites/Worm/Worm.tres" id="2_14t50"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pc157"]

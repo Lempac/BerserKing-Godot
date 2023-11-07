@@ -1,6 +1,6 @@
 extends Resource
 
-class_name entity_resource
+class_name EntityResource
 
 @export var name : String
 @export var health : float
@@ -8,3 +8,6 @@ class_name entity_resource
 @export var logic : Script
 @export var shape : Shape2D
 @export var sprite_frames : SpriteFrames
+
+func Summon():
+	pass
