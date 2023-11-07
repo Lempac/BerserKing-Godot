@@ -1,5 +1,5 @@
 extends Resource
 
-class_name Wave_Resource
+class_name WaveResource
 
-@export var Data : Array[Wave_Entry_Resource]
+@export var Data : Array[WaveEntryResource]
