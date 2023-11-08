@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xrwpsuf35a67"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Classes/LevelTileMap.gd" id="1_8ivll"]
+[ext_resource type="Script" path="res://Assets/Scripts/Classes/level_tile_map.gd" id="1_8ivll"]
 [ext_resource type="TileSet" uid="uid://bbm37strpelug" path="res://Assets/Textures/Tilemaps/TileSet_16x16.tres" id="1_kb6h3"]
 
 [node name="LevelTiles" type="Node2D"]
