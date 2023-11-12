@@ -11,29 +11,39 @@ class_name LevelTileMap
 
 class Tile extends Resource:
 	var tile_position : Vector2i
+	var pattern : TileMapPattern
 	var connection_data : Array[int]
 	var type : int
-	func _init(tile_position : Vector2i) -> void:
+	var layer : int
+	func _init(tile_position : Vector2i, type: int, layer : int, pattern : TileMapPattern) -> void:
 		self.tile_position = tile_position
+		self.type = type
+		self.pattern = pattern
+		self.layer = layer
 
-func ProcessLevelTiles(layer := 0) -> Array[Tile]:
+func process_level_tiles(layer := 0) -> Array[Tile]:
 	var tiles: Array[Tile]
 	var tile_position := Vector2i(0, 0)
-	while HasTile(tile_position, layer):
-		while HasTile(tile_position, layer):
-			tiles.append(GetTile(tile_position, layer))
-			tile_position.x += 1
+	while has_tile(tile_position, layer):
+		while has_tile(tile_position, layer):
+			tiles.append(get_tile(tile_position, layer))
+			tile_position.x += 16
 		tile_position.x = 0
-		tile_position.y += 1
+		tile_position.y += 16
 	return tiles
 
-func HasTile(tile_position: Vector2i, layer := 0) -> bool:
-	var used_cells = get_used_cells(layer)
-	return Rect2i(used_cells[0], used_cells[-1] - used_cells[0]).intersects(Rect2i(tile_position, tile_size))
+func has_tile(tile_position: Vector2i, layer := 0) -> bool:
+	var area = Rect2i(tile_position, tile_size)
+	for used_cells in get_used_cells(layer):
+		if area.has_point(used_cells):
+			return true
+	return false
 
-func GetTile(Position: Vector2i, Layer: int = 0) -> Tile:
-	var NewTile := Tile.new(Position)
-	return NewTile
-
-func _ready():
-	tiles = ProcessLevelTiles()
+func get_tile(tile_position: Vector2i, layer: int = 0) -> Tile:
+	var pattern : TileMapPattern
+	var positions : Array[Vector2i] = []
+	for x in tile_size.x:
+		for y in tile_size.y:
+			positions.append(Vector2i(tile_position.x + x, tile_position.y + y))
+	var new_tile := Tile.new(tile_position, len(tiles), layer, get_pattern(layer, positions))
+	return new_tile

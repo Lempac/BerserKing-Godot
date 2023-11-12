@@ -5,9 +5,12 @@ extends Control
 @export var LevelIcon : PackedScene
 
 func _ready():
-	for Level in LevelTiles.instantiate().get_children():
+	for level in LevelTiles.instantiate().get_children():
+		if level.level_name == "" or level.tile_size == Vector2i(0,0) or level.connection_size == Vector2i(0,0):
+			continue
 		var levelicon = LevelIcon.instantiate()
-		levelicon.LevelData = Level
+		level.tiles = level.process_level_tiles()
+		levelicon.LevelData = level
 		Levels.add_child(levelicon)
 
 func _on_back_pressed():

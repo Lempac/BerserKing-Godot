@@ -5,3 +5,5 @@ extends Node
 func _ready():
 	Global.CurrentPlayer = $Player
 	generator = Generator.new(Global.CurrentLevel, Global.CurrentPlayer)
+	generator.generate()
+	print("Running")

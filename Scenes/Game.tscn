@@ -773,7 +773,6 @@ script = ExtResource("1_63c7c")
 PlayerData = ExtResource("2_revkp")
 
 [node name="Player" type="Area2D" parent="."]
-position = Vector2(-2, 0)
 script = ExtResource("3_4um63")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
