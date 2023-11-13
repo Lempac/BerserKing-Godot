@@ -1,16 +1,25 @@
 extends Node
-
+##Generator of level tile maps, generates.
 class_name Generator
-
+##Tilemap to use.
 @export var level_data : LevelTileMap
+##Entity to lock on the generation(spawn tilemap in it parent).
 @export var lock_to_entity : Area2D
+##Is generator running?
 @export var is_running = false
+##Dictionary of loaded chunks, key is chunk position.
 @export var chunks_loaded := {}
+##Dictionary of unloaded chunks, key is chunk position.
 @export var chunks_unloaded := {}
+##Range of tile generation, it will generate in radius, so it range*2+1.
 @export var range := 1
+##Seed used in generation.
 @export var seed = 0
+##Generators noise function.
 @export var noise_generator = FastNoiseLite.new()
+##Tilemap it generate on.
 @export var tilemap : TileMap
+##Template for empty tile.
 @export var empty_tile : TileMapPattern
 
 func _init(level_data : LevelTileMap, lock_to_entity : Area2D, seed := 0) -> void:
@@ -26,6 +35,7 @@ func _init(level_data : LevelTileMap, lock_to_entity : Area2D, seed := 0) -> voi
 	noise_generator.seed = self.seed
 	Global.generate_inited.emit(level_data, lock_to_entity)
 
+##Start chunk generation, if not started.
 func generate() -> void:
 	if is_running:
 		return
@@ -46,10 +56,10 @@ func generate() -> void:
 		for chunk_position in chunks_loaded:
 			if !Rect2i(position - range_with_tile_size, range_with_tile_size * (range * 2 + 1)).has_point(chunk_position):
 				chunk_unload(chunk_position)
-				
 		await lock_to_entity.get_tree().process_frame
 	Global.generate_stopped.emit(level_data, lock_to_entity)
 
+##Load chunk at position in tilemap.
 func chunk_load(position : Vector2i, tile : LevelTileMap.Tile = null) -> void:
 	if chunks_loaded.has(position):
 		return
@@ -63,6 +73,7 @@ func chunk_load(position : Vector2i, tile : LevelTileMap.Tile = null) -> void:
 		Global.generate_on_new_loaded.emit(position, tile)
 	Global.generate_on_loaded.emit(position, tile)
 
+##Unload chunk at position.
 func chunk_unload(position : Vector2i) -> void:
 	if chunks_unloaded.has(position):
 		return
@@ -71,6 +82,7 @@ func chunk_unload(position : Vector2i) -> void:
 	tilemap.set_pattern(chunks_unloaded[position].layer, position, empty_tile)
 	Global.generate_on_unloaded.emit(position, chunks_unloaded[position])
 
+##Stops the generator, returns if stopped.
 func stop() -> bool:
 	if not is_running:
 		return false

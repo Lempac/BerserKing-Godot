@@ -2,13 +2,18 @@ extends TileMap
 ##Contains data about level.
 
 class_name LevelTileMap
-
+##Level name.
 @export var level_name : String
+##Level description.
 @export_multiline var description : String
+##Level one tile size.
 @export var tile_size : Vector2i
+##Level one tile connection size.
 @export var connection_size : Vector2i
+##Level all available tiles.
 @export var tiles: Array[Tile]
 
+##Container for Tile data
 class Tile extends Resource:
 	var tile_position : Vector2i
 	var pattern : TileMapPattern
@@ -21,6 +26,7 @@ class Tile extends Resource:
 		self.pattern = pattern
 		self.layer = layer
 
+##Returns list of tilemaps tiles
 func process_level_tiles(layer := 0) -> Array[Tile]:
 	var tiles: Array[Tile]
 	var tile_position := Vector2i(0, 0)
@@ -32,6 +38,7 @@ func process_level_tiles(layer := 0) -> Array[Tile]:
 		tile_position.y += tile_size.y
 	return tiles
 
+##Check if tilemap has a tile in rect.
 func has_tile(tile_position: Vector2i, layer := 0) -> bool:
 	var area = Rect2i(tile_position, tile_size)
 	for used_cells in get_used_cells(layer):
@@ -39,6 +46,7 @@ func has_tile(tile_position: Vector2i, layer := 0) -> bool:
 			return true
 	return false
 
+##Returns tile container from tilemap
 func get_tile(tile_position: Vector2i, layer: int = 0) -> Tile:
 	var pattern : TileMapPattern
 	var positions : Array[Vector2i] = []

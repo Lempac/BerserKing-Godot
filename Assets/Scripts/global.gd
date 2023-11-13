@@ -24,5 +24,12 @@ signal generate_on_loaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_on_unloaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_stopped(level_data : LevelTileMap, lock_to_entity : Area2D)
 
+#Object
+signal object_spawned(object : ObjectResource)
+signal object_despawned(object : ObjectResource)
 
+#Item
 
+#Entity
+signal entity_killed(entity : EntityResource)
+signal entity_hit(entity : EntityResource)

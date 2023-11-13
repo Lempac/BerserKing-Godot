@@ -1,9 +1,7 @@
 extends Node
-@export var generator : Generator
-@export var PlayerData : EntityResource
+var generator : Generator
 
 func _ready():
 	Global.CurrentPlayer = $Player
 	generator = Generator.new(Global.CurrentLevel, Global.CurrentPlayer)
 	generator.generate()
-	print("Running")

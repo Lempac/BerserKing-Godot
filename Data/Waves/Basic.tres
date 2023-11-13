@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="WaveResource" load_steps=2 format=3 uid="uid://cxu6jvgyvtxvf"]
-
-[ext_resource type="Script" path="res://Assets/Scripts/Classes/Resources/WaveResource.gd" id="3_ea65x"]
-
-[resource]
-script = ExtResource("3_ea65x")
-Data = Array[Resource("res://Assets/Scripts/Classes/Resources/WaveEntryResource.gd")]([null])
