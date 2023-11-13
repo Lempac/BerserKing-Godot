@@ -18,7 +18,6 @@
 			"tasks": [
 				"c869bd62-fe7c-495e-af5b-99e499119ebc",
 				"0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
-				"ab48b4f0-6e4e-4bcc-996e-b66ed3183ed9",
 				"86bd9360-205b-4c10-880c-501b56f1bc03",
 				"3ba5149f-8c8d-40fa-8ead-1d5a6c1f0a76",
 				"b1a0b56d-215f-4a8b-a54c-f46c437c1009"
@@ -28,7 +27,8 @@
 			"uuid": "503e1b3a-3ee8-4377-b4f1-4d0398e0ec96",
 			"title": "Doing",
 			"tasks": [
-				"72d16102-d53b-4058-a34d-ce95794c10e9"
+				"72d16102-d53b-4058-a34d-ce95794c10e9",
+				"ab48b4f0-6e4e-4bcc-996e-b66ed3183ed9"
 			]
 		},
 		{
@@ -43,21 +43,60 @@
 			"title": "Items",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": []
+			"steps": [
+				{
+					"details": "Name",
+					"done": false
+				},
+				{
+					"details": "stats",
+					"done": false
+				},
+				{
+					"details": "generation",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
 			"title": "Entities",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": []
+			"steps": [
+				{
+					"details": "Name",
+					"done": false
+				},
+				{
+					"details": "Stats",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "72d16102-d53b-4058-a34d-ce95794c10e9",
 			"title": "Levels gen",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": []
+			"steps": [
+				{
+					"details": "generation",
+					"done": true
+				},
+				{
+					"details": "loading",
+					"done": true
+				},
+				{
+					"details": "unloading",
+					"done": true
+				},
+				{
+					"details": "connection",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "12b302c3-5b34-4c34-a9f9-f263d73b2545",
