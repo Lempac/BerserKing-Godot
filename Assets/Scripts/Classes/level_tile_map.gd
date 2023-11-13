@@ -27,9 +27,9 @@ func process_level_tiles(layer := 0) -> Array[Tile]:
 	while has_tile(tile_position, layer):
 		while has_tile(tile_position, layer):
 			tiles.append(get_tile(tile_position, layer))
-			tile_position.x += 16
+			tile_position.x += tile_size.x
 		tile_position.x = 0
-		tile_position.y += 16
+		tile_position.y += tile_size.y
 	return tiles
 
 func has_tile(tile_position: Vector2i, layer := 0) -> bool:

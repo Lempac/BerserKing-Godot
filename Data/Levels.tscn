@@ -6,6 +6,7 @@
 [node name="LevelTiles" type="Node2D"]
 
 [node name="Main" type="TileMap" parent="."]
+position = Vector2(0, -2)
 tile_set = ExtResource("1_kb6h3")
 format = 2
 layer_0/name = "Tiles"
