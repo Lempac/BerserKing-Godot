@@ -28,11 +28,10 @@ func _init(level_data : LevelTileMap, lock_to_entity : Area2D, seed := 0) -> voi
 	for x in level_data.tile_size.x:
 		for y in level_data.tile_size.y:
 			empty_tile.set_cell(Vector2(x, y))
-	
 	self.level_data = level_data
 	self.lock_to_entity = lock_to_entity
 	self.seed = seed
-	noise_generator.seed = self.seed
+	noise_generator.seed = seed
 	Global.generate_inited.emit(level_data, lock_to_entity)
 
 ##Start chunk generation, if not started.

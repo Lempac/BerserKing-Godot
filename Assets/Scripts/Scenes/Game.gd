@@ -1,7 +1,11 @@
 extends Node
-var generator : Generator
+@export var generator : Generator
+var player
 
 func _ready():
-	Global.CurrentPlayer = $Player
+	player = Player.new(load("res://Data/Entities/player.tres"))
+	add_child(player)
+	Global.CurrentPlayer = player
 	generator = Generator.new(Global.CurrentLevel, Global.CurrentPlayer)
 	generator.generate()
+	
