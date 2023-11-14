@@ -16,11 +16,10 @@
 			"uuid": "edb04a9e-aac6-417a-8faa-2b8e3ff2bb62",
 			"title": "Todo",
 			"tasks": [
+				"b1a0b56d-215f-4a8b-a54c-f46c437c1009",
 				"c869bd62-fe7c-495e-af5b-99e499119ebc",
 				"0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
-				"86bd9360-205b-4c10-880c-501b56f1bc03",
-				"3ba5149f-8c8d-40fa-8ead-1d5a6c1f0a76",
-				"b1a0b56d-215f-4a8b-a54c-f46c437c1009"
+				"3ba5149f-8c8d-40fa-8ead-1d5a6c1f0a76"
 			]
 		},
 		{
@@ -43,36 +42,14 @@
 			"title": "Items",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": [
-				{
-					"details": "Name",
-					"done": false
-				},
-				{
-					"details": "stats",
-					"done": false
-				},
-				{
-					"details": "generation",
-					"done": false
-				}
-			]
+			"steps": []
 		},
 		{
 			"uuid": "0c873f8f-4fc3-4fd2-b4e4-1071415e009a",
 			"title": "Entities",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": [
-				{
-					"details": "Name",
-					"done": false
-				},
-				{
-					"details": "Stats",
-					"done": false
-				}
-			]
+			"steps": []
 		},
 		{
 			"uuid": "72d16102-d53b-4058-a34d-ce95794c10e9",
@@ -136,7 +113,16 @@
 			"title": "Wave spawning",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": []
+			"steps": [
+				{
+					"details": "data processing",
+					"done": false
+				},
+				{
+					"details": "spawing entities",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {
