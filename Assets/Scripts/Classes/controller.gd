@@ -1,8 +1,14 @@
-extends Area2D
+extends Node
 
-@export var speed = 400
-@export var speed_multiplyer = 1
-var screen_size
+class_name Controller
+@export var speed : int
+@export var speed_multiplyer : int
+var parent
+
+func _init(parent: Area2D, speed := 400, speed_multiplyer := 1) -> void:
+	self.parent = parent
+	self.speed = speed
+	self.speed_multiplyer = speed_multiplyer
 
 func _process(delta):
 	var velocity = Vector2.ZERO
@@ -18,12 +24,12 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed * speed_multiplyer
 	
-	position += velocity * delta
+	parent.position += velocity * delta
 
 
 func _on_body_entered(body: TileMap):
 	if body is TileMap:
-		speed_multiplyer = body.get_cell_tile_data(0, body.local_to_map(position.round())).get_custom_data_by_layer_id(0)
+		speed_multiplyer = body.get_cell_tile_data(0, body.local_to_map(parent.position.round())).get_custom_data_by_layer_id(0)
 		
 
 func _on_body_exited(body):
