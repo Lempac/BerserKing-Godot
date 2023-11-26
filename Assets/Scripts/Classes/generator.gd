@@ -39,6 +39,15 @@ func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to
 	self.lock_to_entity = lock_to_entity
 	self.seed = seed
 	noise_generator.seed = seed
+	Global.generate_on_new_loaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
+		pass
+	)
+	Global.generate_on_unloaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
+		pass
+	)
+	Global.generate_on_loaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
+		pass
+	)
 	Global.generate_inited.emit(level_data, lock_to_entity)
 
 ##Start chunk generation, if not started.
@@ -47,6 +56,7 @@ func generate() -> void:
 		return
 	is_running = true
 	tilemap = TileMap.new()
+	tilemap.tree_exiting.connect(func(): is_running = false)
 	tilemap.tile_set = level_data.tile_set
 	for layer in level_data.get_layers_count():
 		tilemap.add_layer(layer)
@@ -59,7 +69,7 @@ func generate() -> void:
 		for x in range(position.x - range_with_tile_size.x, position.x + (range+1)*level_data.tile_size.x, level_data.tile_size.x):
 			for y in range(position.y - range_with_tile_size.y, position.y + (range+1)*level_data.tile_size.y, level_data.tile_size.y):
 					chunk_load(Vector2i(x,y), chunks_unloaded.get(Vector2i(x,y)))
-		var area_of_chunks = Rect2i(position - range_with_tile_size, range_with_tile_size * (range * 2 + 1))
+		var area_of_chunks = Rect2i(position - range_with_tile_size, range_with_tile_size * 2 + level_data.tile_size)
 		for chunk_position in chunks_loaded:
 			if !area_of_chunks.has_point(chunk_position):
 				chunk_unload(chunk_position)

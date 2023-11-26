@@ -7,7 +7,6 @@
 
 [resource]
 script = ExtResource("1_dr5rd")
-test = "test"
 name = "player"
 sprite_frames = ExtResource("2_lqq7s")
 shape = SubResource("RectangleShape2D_lcots")

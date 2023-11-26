@@ -30,7 +30,6 @@ func _process(delta):
 func _on_body_entered(body: TileMap):
 	if body is TileMap:
 		speed_multiplyer = body.get_cell_tile_data(0, body.local_to_map(parent.position.round())).get_custom_data_by_layer_id(0)
-		
 
 func _on_body_exited(body):
 	if body is TileMap:

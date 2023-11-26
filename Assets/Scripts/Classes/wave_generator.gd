@@ -20,6 +20,7 @@ func generate() -> void:
 	if is_running:
 		return
 	is_running = true
+	lock_to_generator.tilemap.tree_exiting.connect(func(): is_running = false)
 	while is_running:
 		is_running = lock_to_generator.is_running
 		await lock_to_generator.tilemap.get_tree().process_frame
