@@ -3,6 +3,7 @@ extends Entity
 class_name Player
 
 @export var controller : Controller
+@export var inventory : Inventory
 @export var camera : Camera2D
 
 func _init(data : EntityResource, do_spawning := true) -> void:

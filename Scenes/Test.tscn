@@ -1,7 +1,6 @@
-[gd_scene load_steps=133 format=3 uid="uid://bi608gdc816tk"]
+[gd_scene load_steps=131 format=3 uid="uid://bi608gdc816tk"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Classes/controller.gd" id="1_o82us"]
-[ext_resource type="SpriteFrames" uid="uid://ds6hg4dcgtowg" path="res://Assets/Textures/Sprites/Player/Player.tres" id="2_el8w7"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scenes/TestScene.gd" id="1_u6sni"]
 [ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://Assets/Textures/Sprites/Worm/Worm.tres" id="3_2nepa"]
 [ext_resource type="Texture2D" uid="uid://bt0mccgnrqjqr" path="res://Assets/Textures/Sprites/Bandit/Animations/All.png" id="4_gavur"]
 [ext_resource type="Texture2D" uid="uid://cpbpung2otgcu" path="res://Assets/Textures/Sprites/Crow/Animations/Idle.png" id="5_16053"]
@@ -40,8 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://dnsqsxxk8t3vk" path="res://Assets/Textures/Sprites/Spider/Animations/Run_4.png" id="38_ltl3a"]
 [ext_resource type="Texture2D" uid="uid://c64keofy5xcw4" path="res://Assets/Textures/Sprites/Tree/Animations/All.png" id="39_um17u"]
 [ext_resource type="Texture2D" uid="uid://jagknwyki4j6" path="res://Assets/Textures/Sprites/Zombie/Animations/All.png" id="40_5u45r"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_phr5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dajro"]
 atlas = ExtResource("4_gavur")
@@ -767,20 +764,7 @@ animations = [{
 }]
 
 [node name="Test" type="Node"]
-
-[node name="Player" type="Area2D" parent="."]
-script = ExtResource("1_o82us")
-speed = 400
-speed_multiplyer = 1
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_phr5w")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = ExtResource("2_el8w7")
-animation = &"death"
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("1_u6sni")
 
 [node name="Enemy" type="Node" parent="."]
 
