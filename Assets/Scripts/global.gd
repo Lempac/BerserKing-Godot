@@ -12,10 +12,6 @@ extends Node
 @export var CurrentLevel : LevelTileMap
 @export var CurrentPlayer : Area2D
 
-#Entities
-@export_file var Entity := "res://Assets/Objects/Entity.tscn"
-@export_file var LevelTiles := "res://Data/LevelTiles.tscn"
-
 #Signals
 #Wave
 signal wave_inited()
@@ -29,6 +25,13 @@ signal generate_on_new_loaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_on_loaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_on_unloaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_stopped(level_data : LevelTileMap, lock_to_entity : Area2D)
+
+#Wave generator
+signal wave_generate_inited(wave_data : WaveResource, lock_to_generator : Generator)
+signal wave_generate_on_new_spawned(position : Vector2i, entity : Entity)
+signal wave_generate_on_spawned(position : Vector2i, entity : Entity)
+signal wave_generate_on_despawned(position : Vector2i, entity : Entity)
+signal wave_generate_stopped(wave_data : WaveResource, lock_to_generator : Generator)
 
 #Object
 signal object_spawned(object : GameObjectResource)
