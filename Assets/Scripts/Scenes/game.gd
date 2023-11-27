@@ -1,7 +1,7 @@
 extends Node
 @export var generator : Generator
 @export var wave_generator : WaveGenerator
-var player
+@export var player : Player
 
 func _ready():
 	add_child(load(Global.GameUIScene).instantiate())
