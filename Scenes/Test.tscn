@@ -1,6 +1,6 @@
 [gd_scene load_steps=131 format=3 uid="uid://bi608gdc816tk"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Scenes/TestScene.gd" id="1_u6sni"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scenes/test_scene.gd" id="1_pcd04"]
 [ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://Assets/Textures/Sprites/Worm/Worm.tres" id="3_2nepa"]
 [ext_resource type="Texture2D" uid="uid://bt0mccgnrqjqr" path="res://Assets/Textures/Sprites/Bandit/Animations/All.png" id="4_gavur"]
 [ext_resource type="Texture2D" uid="uid://cpbpung2otgcu" path="res://Assets/Textures/Sprites/Crow/Animations/Idle.png" id="5_16053"]
@@ -764,7 +764,7 @@ animations = [{
 }]
 
 [node name="Test" type="Node"]
-script = ExtResource("1_u6sni")
+script = ExtResource("1_pcd04")
 
 [node name="Enemy" type="Node" parent="."]
 

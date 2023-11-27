@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://buraepk6fc5ec"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Scenes/Levels.gd" id="1_04720"]
-[ext_resource type="PackedScene" uid="uid://quii2duuw7uf" path="res://Assets/Objects/LevelInfo.tscn" id="2_4mkpp"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scenes/levels.gd" id="1_04720"]
+[ext_resource type="PackedScene" uid="uid://quii2duuw7uf" path="res://Assets/Objects/level_info.tscn" id="2_4mkpp"]
 [ext_resource type="PackedScene" uid="uid://xrwpsuf35a67" path="res://Data/Levels.tscn" id="2_djk8a"]
 
 [node name="Levels" type="Control" node_paths=PackedStringArray("Levels")]
