@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("1_n20rx")
+damage = 10
 name = "Worm"
 sprite_frames = ExtResource("2_dlh5v")
 shape = SubResource("RectangleShape2D_3egqf")
