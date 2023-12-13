@@ -10,7 +10,7 @@ extends Node
 
 #CurrentEntities
 @export var CurrentLevel : LevelTileMap
-@export var CurrentPlayer : Area2D
+@export var CurrentPlayer : CharacterBody2D
 
 #Signals
 #Wave

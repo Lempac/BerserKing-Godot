@@ -2,35 +2,12 @@ extends Node
 
 class_name Controller
 @export var speed : int
-@export var speed_multiplyer : int
-var parent
+var parent : CharacterBody2D
 
-func _init(parent: Area2D, speed := 400, speed_multiplyer := 1) -> void:
+func _init(parent: CharacterBody2D, speed := 100) -> void:
 	self.parent = parent
 	self.speed = speed
-	self.speed_multiplyer = speed_multiplyer
 
-func _process(delta):
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed * speed_multiplyer
-	
-	parent.position += velocity * delta
-
-
-func _on_body_entered(body: TileMap):
-	if body is TileMap:
-		speed_multiplyer = body.get_cell_tile_data(0, body.local_to_map(parent.position.round())).get_custom_data_by_layer_id(0)
-
-func _on_body_exited(body):
-	if body is TileMap:
-		speed_multiplyer = 1
+func _process(delta: float) -> void:
+	parent.velocity = (Global.CurrentPlayer.position - parent.position).normalized() * speed
+	parent.move_and_slide()

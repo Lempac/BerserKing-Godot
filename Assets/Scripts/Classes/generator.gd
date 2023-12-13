@@ -6,7 +6,7 @@ class_name Generator
 ##Items to use.
 @export var items_data : Array[ItemResource]
 ##Entity to lock on the generation(spawn tilemap in it parent).
-@export var lock_to_entity : Area2D
+@export var lock_to_entity : CharacterBody2D
 ##Is generator running?
 @export var is_running = false
 ##Dictionary of loaded chunks, key is chunk position.
@@ -28,7 +28,7 @@ class_name Generator
 ##Template for empty tile.
 @export var empty_tile : TileMapPattern
 
-func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to_entity : Area2D, seed := 0) -> void:
+func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to_entity : CharacterBody2D, seed := 0) -> void:
 	empty_tile = TileMapPattern.new()
 	empty_tile.set_size(level_data.tile_size)
 	for x in level_data.tile_size.x:
