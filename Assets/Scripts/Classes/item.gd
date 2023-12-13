@@ -7,9 +7,3 @@ func _init(data : ItemResource, do_spawning := true) -> void:
 
 func spawn():
 	super.spawn()
-	area_entered.connect(pick_up)
-
-func pick_up(area: Area2D):
-	if len(Global.item_picked_up.get_connections()) == 0:
-		queue_free()
-	Global.item_picked_up.emit(data)
