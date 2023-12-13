@@ -2,15 +2,15 @@ extends Node
 
 #Variables
 #Scenes
-@export_file var PlayScene := "res://Scenes/Levels.tscn"
-@export_file var OptionsScene := "res://Scenes/OptionsMenu.tscn"
-@export_file var MainMenuScene := "res://Scenes/MainMenu.tscn"
-@export_file var GameScene := "res://Scenes/Game.tscn"
-@export_file var GameUIScene := "res://Scenes/GameUI.tscn"
+@export_file var PlayScene := "res://Scenes/levels.tscn"
+@export_file var OptionsScene := "res://Scenes/options_menu.tscn"
+@export_file var MainMenuScene := "res://Scenes/main_menu.tscn"
+@export_file var GameScene := "res://Scenes/game.tscn"
+@export_file var GameUIScene := "res://Scenes/game_ui.tscn"
 
 #CurrentEntities
 @export var CurrentLevel : LevelTileMap
-@export var CurrentPlayer : Area2D
+@export var CurrentPlayer : CharacterBody2D
 
 #Signals
 #Wave

@@ -1,7 +1,7 @@
 extends Node
 @export var generator : Generator
 @export var wave_generator : WaveGenerator
-var player
+@export var player : Player
 
 func _ready():
 	add_child(load(Global.GameUIScene).instantiate())
@@ -13,5 +13,6 @@ func _ready():
 	generator.generate()
 	wave_generator = WaveGenerator.new(load("res://Data/Waves/basic.tres"), generator)
 	wave_generator.generate()
-	
-	
+	for x in range(10):
+		await get_tree().create_timer(2).timeout
+		add_child(Entity.new(load("res://Data/Entities/worm.tres")))
