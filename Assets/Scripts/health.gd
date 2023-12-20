@@ -1,16 +1,13 @@
 extends CharacterBody2D
 class_name Health
-@export var health = 0
-@export var max_health = 100
+@export var health : int
+@export var max_health : int
 
 func take_damage(damage : int):
 	health-=damage
 	if health <= 0:
-		die()
-		
-func die():
-	queue_free()
-	
-	
-func _init():
-	health = max_health
+		pass
+
+func _init(max_health : int , health : int):
+	self.max_health = max_health
+	self.health = health
