@@ -37,6 +37,10 @@ signal wave_generate_stopped(wave_data : WaveResource, lock_to_generator : Gener
 signal object_spawned(object : GameObjectResource)
 signal object_despawned(object : GameObjectResource)
 
+#Health
+signal health_took_damage(health : Health)
+
+
 #Item
 signal item_picked_up(item: ItemResource)
 
@@ -44,3 +48,4 @@ signal item_picked_up(item: ItemResource)
 
 #Controller
 signal controller_touch(entity : Entity)
+
