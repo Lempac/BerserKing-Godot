@@ -5,7 +5,7 @@ extends Control
 @export var LevelData : LevelTileMap:
 	set(value):
 		LevelData = value
-		Title.text = value.Name
+		Title.text = value.level_name
 var original_size := scale
 var grow_size := Vector2(1.1, 1.1)
 

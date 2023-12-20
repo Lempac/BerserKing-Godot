@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Berser King"
-run/main_scene="res://Scenes/MainMenu.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+run/main_scene="res://Scenes/main_menu.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=60
 config/icon="res://Assets/icon.svg"
 
 [audio]
@@ -22,6 +23,10 @@ buses/default_bus_layout=""
 [autoload]
 
 Global="*res://Assets/Scripts/global.gd"
+
+[display]
+
+window/vsync/vsync_mode=2
 
 [editor_plugins]
 
