@@ -10,8 +10,3 @@ func _init(data : EntityResource, do_spawning := true) -> void:
 	add_child(self.controller)
 	health = Health.new(100, 100)
 	add_child(health)
-	Global.controller_touch.connect(
-		func (entity, other):
-			print(entity.name)
-			print(other.name)
-	)
