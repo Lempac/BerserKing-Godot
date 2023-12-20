@@ -6,13 +6,12 @@ class_name Health
 func take_damage(damage : int):
 	health-=damage
 	if health <= 0:
-		die()
+		pass
 		
 func die():
 	queue_free()
 	
 	
-func _init(max_health : int = 0, health : int = 0):
+func _init(max_health : int, health : int):
 	self.health = health
 	self.max_health = max_health
-	
