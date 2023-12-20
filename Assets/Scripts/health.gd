@@ -7,7 +7,11 @@ func take_damage(damage : int):
 	health-=damage
 	if health <= 0:
 		pass
-
-func _init(max_health : int , health : int):
-	self.max_health = max_health
+		
+func die():
+	queue_free()
+	
+	
+func _init(max_health : int, health : int):
 	self.health = health
+	self.max_health = max_health

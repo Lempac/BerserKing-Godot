@@ -1,6 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://ceeflcvylasqu"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://Assets/Scripts/Scenes/game.gd" id="1_dxqvq"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_dxqvq")
+=======
+[ext_resource type="Script" path="res://Assets/Scripts/Scenes/game.gd" id="1_erquf"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_erquf")
+>>>>>>> entities/items_spawning
