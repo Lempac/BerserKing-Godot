@@ -7,7 +7,10 @@
 
 [resource]
 script = ExtResource("1_vqpve")
-damage = 0
+damage = 4
+health = 100
+max_health = 100
+health_regenerate = 5
 name = "Player"
 sprite_frames = ExtResource("2_205qb")
 shape = SubResource("RectangleShape2D_ym1gh")

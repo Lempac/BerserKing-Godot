@@ -17,7 +17,9 @@
 			"title": "Todo",
 			"tasks": [
 				"b1a0b56d-215f-4a8b-a54c-f46c437c1009",
-				"df0a1bdb-dd7a-4a88-8783-38d0b6a9a7ef"
+				"df0a1bdb-dd7a-4a88-8783-38d0b6a9a7ef",
+				"c869bd62-fe7c-495e-af5b-99e499119ebc",
+				"72d16102-d53b-4058-a34d-ce95794c10e9"
 			]
 		},
 		{
@@ -33,10 +35,8 @@
 			"uuid": "7eb83d3e-44c7-4b01-b02e-5c4b72692a27",
 			"title": "Done",
 			"tasks": [
-				"72d16102-d53b-4058-a34d-ce95794c10e9",
 				"6c86e9f4-2f52-46b2-b7e0-1fdb74bfb9cb",
-				"6157189b-9ba2-4f15-a953-38fa382f3a18",
-				"c869bd62-fe7c-495e-af5b-99e499119ebc"
+				"6157189b-9ba2-4f15-a953-38fa382f3a18"
 			]
 		}
 	],
@@ -49,11 +49,11 @@
 			"steps": [
 				{
 					"details": "spawning",
-					"done": true
+					"done": false
 				},
 				{
 					"details": "pick_up",
-					"done": true
+					"done": false
 				}
 			]
 		},
@@ -77,7 +77,7 @@
 				},
 				{
 					"details": "health",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -192,6 +192,10 @@
 				{
 					"details": "controller",
 					"done": true
+				},
+				{
+					"details": "inventory",
+					"done": false
 				}
 			]
 		},
@@ -200,7 +204,20 @@
 			"title": "Inventory",
 			"description": "",
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": []
+			"steps": [
+				{
+					"details": "slots",
+					"done": false
+				},
+				{
+					"details": "data control",
+					"done": false
+				},
+				{
+					"details": "event control",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {

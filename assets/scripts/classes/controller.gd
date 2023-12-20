@@ -2,14 +2,14 @@ extends Area2D
 
 class_name Controller
 @export var speed : int
-var parent : CharacterBody2D
 
-func _init(parent: CharacterBody2D, speed := 100) -> void:
-	self.parent = parent
+func _init(speed := 100) -> void:
 	self.speed = speed
-	area_entered.connect(func(other : Controller): Global.controller_touch.emit(parent, other.parent))
-
+	
 func _process(delta: float) -> void:
+	var parent = get_parent() 
 	parent.velocity = (Global.CurrentPlayer.position - parent.position).normalized() * speed
 	parent.move_and_slide()
 	
+func _enter_tree() -> void:
+	area_entered.connect(func(other : Controller): Global.controller_touch.emit(get_parent() , other.get_parent()))

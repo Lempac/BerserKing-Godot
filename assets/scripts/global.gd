@@ -39,7 +39,7 @@ signal object_despawned(object : GameObjectResource)
 
 #Health
 signal health_took_damage(health : Health)
-
+signal health_killed(entity : Entity)
 
 #Item
 signal item_picked_up(item: ItemResource)
