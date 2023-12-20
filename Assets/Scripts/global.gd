@@ -14,10 +14,10 @@ extends Node
 
 #Signals
 #Wave
-signal wave_inited()
-signal wave_started()
-signal wave_stepped()
-signal wave_ended()
+signal wave_inited(wave_data : WaveResource)
+signal wave_started(wave_data : WaveResource)
+signal wave_stepped(wave_data : WaveResource)
+signal wave_ended(wave_data : WaveResource)
 
 #Generator
 signal generate_inited(level_data : LevelTileMap, lock_to_entity : Area2D)
@@ -40,8 +40,7 @@ signal object_despawned(object : GameObjectResource)
 #Item
 signal item_picked_up(item: ItemResource)
 
-#Entity
-signal entity_killed(entity : Entity)
-signal entity_hit(entity : Entity)
-
 #Player
+
+#Controller
+signal controller_touch(entity : Entity)
