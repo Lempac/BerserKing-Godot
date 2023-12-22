@@ -2,8 +2,9 @@ extends Resource
 
 class_name WaveResource
 
-@export_enum(
-	"On loaded:generate_on_loaded",
-	"On wave spawned:wave_generate_on_spawned"
-) var start_event_string : String
+@export var start_event : String
+@export var end_event : String
+@export var step_event : String
+@export var wave_spawn_cooldown : int
 @export var wave_enteries : Array[WaveEntryResource]
+

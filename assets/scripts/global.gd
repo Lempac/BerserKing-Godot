@@ -14,7 +14,6 @@ extends Node
 
 #Signals
 #Wave
-signal wave_inited(wave_data : WaveResource)
 signal wave_started(wave_data : WaveResource)
 signal wave_stepped(wave_data : WaveResource)
 signal wave_ended(wave_data : WaveResource)

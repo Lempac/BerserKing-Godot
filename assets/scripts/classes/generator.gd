@@ -29,16 +29,16 @@ class_name Generator
 @export var empty_tile : TileMapPattern
 
 func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to_entity : CharacterBody2D, seed := 0) -> void:
-	empty_tile = TileMapPattern.new()
-	empty_tile.set_size(level_data.tile_size)
-	for x in level_data.tile_size.x:
-		for y in level_data.tile_size.y:
-			empty_tile.set_cell(Vector2(x, y))
+	self.empty_tile = TileMapPattern.new()
 	self.level_data = level_data
+	self.empty_tile.set_size(self.level_data.tile_size)
+	for x in self.level_data.tile_size.x:
+		for y in self.level_data.tile_size.y:
+			self.empty_tile.set_cell(Vector2(x, y))
 	self.items_data = items_data
 	self.lock_to_entity = lock_to_entity
 	self.seed = seed
-	noise_generator.seed = seed
+	self.noise_generator.seed = seed
 	Global.generate_on_new_loaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
 		pass
 	)
@@ -52,40 +52,40 @@ func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to
 
 ##Start chunk generation, if not started.
 func generate() -> void:
-	if is_running:
+	if self.is_running:
 		return
-	is_running = true
-	tilemap = TileMap.new()
-	tilemap.tree_exiting.connect(func(): is_running = false)
-	tilemap.tile_set = level_data.tile_set
-	for layer in level_data.get_layers_count():
-		tilemap.add_layer(layer)
-		tilemap.set_layer_z_index(layer, level_data.get_layer_z_index(layer))
-	lock_to_entity.get_parent().add_child(tilemap)
-	while is_running:
-		var position_tilemap = tilemap.local_to_map(lock_to_entity.position)
-		var position = Vector2i(floor(float(position_tilemap.x) / level_data.tile_size.x), floor(float(position_tilemap.y) / level_data.tile_size.y)) * level_data.tile_size
-		var range_with_tile_size = range*level_data.tile_size
-		for x in range(position.x - range_with_tile_size.x, position.x + (range+1)*level_data.tile_size.x, level_data.tile_size.x):
-			for y in range(position.y - range_with_tile_size.y, position.y + (range+1)*level_data.tile_size.y, level_data.tile_size.y):
+	self.is_running = true
+	self.tilemap = TileMap.new()
+	self.tilemap.tree_exiting.connect(func(): is_running = false)
+	self.tilemap.tile_set = self.level_data.tile_set
+	for layer in self.level_data.get_layers_count():
+		self.tilemap.add_layer(layer)
+		self.tilemap.set_layer_z_index(layer, self.level_data.get_layer_z_index(layer))
+	self.lock_to_entity.add_sibling(self.tilemap)
+	while self.is_running:
+		var position_tilemap = self.tilemap.local_to_map(self.lock_to_entity.position)
+		var position = Vector2i(floor(float(position_tilemap.x) / self.level_data.tile_size.x), floor(float(position_tilemap.y) / self.level_data.tile_size.y)) * self.level_data.tile_size
+		var range_with_tile_size = self.range*self.level_data.tile_size
+		for x in range(position.x - range_with_tile_size.x, position.x + (self.range+1)*self.level_data.tile_size.x, self.level_data.tile_size.x):
+			for y in range(position.y - range_with_tile_size.y, position.y + (self.range+1)*self.level_data.tile_size.y, self.level_data.tile_size.y):
 					chunk_load(Vector2i(x,y), chunks_unloaded.get(Vector2i(x,y)))
-		var area_of_chunks = Rect2i(position - range_with_tile_size, range_with_tile_size * 2 + level_data.tile_size)
+		var area_of_chunks = Rect2i(position - range_with_tile_size, range_with_tile_size * 2 + self.level_data.tile_size)
 		for chunk_position in chunks_loaded:
 			if !area_of_chunks.has_point(chunk_position):
 				chunk_unload(chunk_position)
-		await lock_to_entity.get_tree().process_frame
-	Global.generate_stopped.emit(level_data, lock_to_entity)
+		await self.lock_to_entity.get_tree().process_frame
+	Global.generate_stopped.emit(self.level_data, self.lock_to_entity)
 
 ##Load chunk at position in tilemap.
 func chunk_load(position : Vector2i, tile : LevelTileMap.Tile = null) -> void:
 	if chunks_loaded.has(position):
 		return
 	if tile == null:
-		chunks_loaded[position] = level_data.tiles[abs(round(noise_generator.get_noise_2dv(position)*len(level_data.tiles)))]
+		chunks_loaded[position] = self.level_data.tiles[abs(round(self.noise_generator.get_noise_2dv(position)*len(self.level_data.tiles)))]
 	else:
 		chunks_loaded[position] = tile
 		chunks_unloaded.erase(position)
-	tilemap.set_pattern(chunks_loaded[position].layer, position, chunks_loaded[position].pattern) 
+	self.tilemap.set_pattern(chunks_loaded[position].layer, position, chunks_loaded[position].pattern) 
 	if tile == null:
 		Global.generate_on_new_loaded.emit(position, tile)
 	Global.generate_on_loaded.emit(position, tile)
@@ -96,12 +96,12 @@ func chunk_unload(position : Vector2i) -> void:
 		return
 	chunks_unloaded[position] = chunks_loaded[position]
 	chunks_loaded.erase(position)
-	tilemap.set_pattern(chunks_unloaded[position].layer, position, empty_tile)
+	self.tilemap.set_pattern(chunks_unloaded[position].layer, position, self.empty_tile)
 	Global.generate_on_unloaded.emit(position, chunks_unloaded[position])
 
 ##Stops the generator, returns if stopped.
 func stop() -> bool:
-	if not is_running:
+	if not self.is_running:
 		return false
-	is_running = false
+	self.is_running = false
 	return true

@@ -8,7 +8,7 @@ func _init(speed := 100) -> void:
 	
 func _process(delta: float) -> void:
 	var parent = get_parent() 
-	parent.velocity = (Global.CurrentPlayer.position - parent.position).normalized() * speed
+	parent.velocity = (Global.CurrentPlayer.position - parent.position).normalized() * self.speed
 	parent.move_and_slide()
 	
 func _enter_tree() -> void:

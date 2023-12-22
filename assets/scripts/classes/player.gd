@@ -18,7 +18,7 @@ class PlayerController extends Controller:
 			velocity.y -= 1
 			
 		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
+			velocity = velocity.normalized() * self.speed
 		var parent : Entity = get_parent()
 		parent.velocity = velocity
 		parent.move_and_slide()
@@ -28,6 +28,8 @@ func _init(data : EntityResource, do_spawning := true) -> void:
 	remove_child(self.controller)
 	self.controller = PlayerController.new(400)
 	add_child(self.controller)
-	camera = Camera2D.new()
-	add_child(camera)
-	inventory = Inventory.new(4)
+	self.camera = Camera2D.new()
+	self.inventory = Inventory.new(4)
+	add_child(self.camera)
+	add_child(self.inventory)
+	Global.CurrentPlayer = self
