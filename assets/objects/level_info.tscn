@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/menus/level_info.gd" id="1_7wu8s"]
 
-[node name="LevelInfo" type="Panel" node_paths=PackedStringArray("Title")]
+[node name="LevelInfo" type="Panel" node_paths=PackedStringArray("title")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,7 +13,7 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7wu8s")
-Title = NodePath("HBoxContainer/VBoxContainer/Text")
+title = NodePath("HBoxContainer/VBoxContainer/Text")
 metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

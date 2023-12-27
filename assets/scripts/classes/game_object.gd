@@ -9,7 +9,7 @@ func _init(data : GameObjectResource, do_spawning := true) -> void:
 	self.data = data
 	if do_spawning: spawn()
 	
-func spawn():
+func spawn() -> void:
 	name = data.name
 	self.sprite_anim = AnimatedSprite2D.new()
 	self.sprite_anim.sprite_frames = data.sprite_frames
@@ -26,7 +26,7 @@ func spawn():
 	add_child(self.collision_shape)
 	Global.object_spawned.emit(data)
 
-func despawn():
+func despawn() -> void:
 	queue_free()
 	Global.object_despawned.emit(data)
 	

@@ -7,13 +7,9 @@ class_name Entity
 
 func _init(data : EntityResource, do_spawning := true) -> void:
 	super._init(data as GameObjectResource, do_spawning)
-	self.controller = Controller.new()
-	add_child(self.controller)
-	self.health = Health.new(data.max_health, data.health)
-	add_child(self.health)
 	self.damage = data.damage
-	Global.health_killed.connect(func(entity): entity.despawn())
-	Global.controller_touch.connect(func(entity, other):
-		print(entity.name)
-		print(other.name)
-	)
+	self.controller = Controller.new()
+	self.health = Health.new(data.max_health, data.health)
+	add_child(self.controller)
+	add_child(self.health)
+	Global.health_killed.connect(func(entity): if entity == self: entity.despawn())

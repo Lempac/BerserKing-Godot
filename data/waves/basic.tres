@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_bfu2c"]
 script = ExtResource("3_5qfny")
 entity = ExtResource("4_efkvp")
-amount = 10
+amount = 500
 spawn_chance = 100
 
 [resource]
@@ -15,5 +15,5 @@ script = ExtResource("1_2k3gc")
 start_event = "generate_inited"
 end_event = ""
 step_event = ""
-wave_spawn_cooldown = 0
+wave_spawn_cooldown = 1
 wave_enteries = Array[ExtResource("3_5qfny")]([SubResource("Resource_bfu2c")])

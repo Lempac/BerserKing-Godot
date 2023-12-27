@@ -22,6 +22,7 @@ class PlayerController extends Controller:
 		var parent : Entity = get_parent()
 		parent.velocity = velocity
 		parent.move_and_slide()
+		self.collision(parent)
 
 func _init(data : EntityResource, do_spawning := true) -> void:
 	super._init(data, do_spawning)

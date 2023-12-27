@@ -29,6 +29,7 @@ class_name Generator
 @export var empty_tile : TileMapPattern
 
 func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to_entity : CharacterBody2D, seed := 0) -> void:
+	name = "Generator"
 	self.empty_tile = TileMapPattern.new()
 	self.level_data = level_data
 	self.empty_tile.set_size(self.level_data.tile_size)
@@ -39,6 +40,10 @@ func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to
 	self.lock_to_entity = lock_to_entity
 	self.seed = seed
 	self.noise_generator.seed = seed
+	self.lock_to_entity.tree_exiting.connect(func(): 
+		tilemap.queue_free()
+		queue_free()
+	)
 	Global.generate_on_new_loaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
 		pass
 	)
@@ -56,6 +61,7 @@ func generate() -> void:
 		return
 	self.is_running = true
 	self.tilemap = TileMap.new()
+	tilemap.name = "Level"
 	self.tilemap.tree_exiting.connect(func(): is_running = false)
 	self.tilemap.tile_set = self.level_data.tile_set
 	for layer in self.level_data.get_layers_count():

@@ -1,6 +1,6 @@
 extends Node
 
-#Variables
+#region Variables
 #Scenes
 @export_file var PlayScene := "res://scenes/levels.tscn"
 @export_file var OptionsScene := "res://scenes/options_menu.tscn"
@@ -8,11 +8,13 @@ extends Node
 @export_file var GameScene := "res://scenes/game.tscn"
 @export_file var GameUIScene := "res://scenes/game_ui.tscn"
 
-#CurrentEntities
+#Current Entities
 @export var CurrentLevel : LevelTileMap
 @export var CurrentPlayer : CharacterBody2D
 
-#Signals
+#endregion
+
+#region Signals
 #Wave
 signal wave_started(wave_data : WaveResource)
 signal wave_stepped(wave_data : WaveResource)
@@ -45,6 +47,10 @@ signal item_picked_up(item: ItemResource)
 
 #Player
 
+
 #Controller
 signal controller_touch(entity : Entity, other : Entity)
+
+
+#endregion
 

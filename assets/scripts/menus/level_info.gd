@@ -1,11 +1,11 @@
 extends Control
 
-@export var Title : Label
+@export var title : Label
 
-@export var LevelData : LevelTileMap:
+@export var level_data : LevelTileMap:
 	set(value):
-		LevelData = value
-		Title.text = value.level_name
+		level_data = value
+		title.text = value.level_name
 var original_size := scale
 var grow_size := Vector2(1.1, 1.1)
 
@@ -18,7 +18,7 @@ func grow_btn(end_size : Vector2, duration: float) -> void:
 
 func _on_gui_input(event):
 	if event.is_action_pressed("left_click"):
-		Global.CurrentLevel = LevelData
+		Global.CurrentLevel = level_data
 		get_tree().change_scene_to_file(Global.GameScene)
 
 func _on_mouse_entered():
