@@ -159,7 +159,7 @@
 				},
 				{
 					"details": "spawing entities",
-					"done": false
+					"done": true
 				}
 			]
 		},
