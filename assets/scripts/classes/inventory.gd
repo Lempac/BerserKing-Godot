@@ -8,3 +8,4 @@ class Slot:
 
 func _init(size) -> void:
 	self.size = size
+	

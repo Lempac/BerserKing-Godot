@@ -8,6 +8,6 @@ class_name ItemGenerator
 func _init() -> void:
 	pass
 
-func spawn() -> void:
+func generate() -> void:
 	pass
 	
