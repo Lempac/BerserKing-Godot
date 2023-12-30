@@ -6,7 +6,7 @@ class_name Player
 @export var camera : Camera2D
 
 class PlayerController extends Controller:
-	func _process(delta):
+	func _physics_process(delta: float) -> void:
 		var velocity = Vector2.ZERO
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1

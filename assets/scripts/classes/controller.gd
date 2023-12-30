@@ -3,10 +3,10 @@ extends Node
 class_name Controller
 @export var speed : int
 
-func _init(speed := 100) -> void:
+func _init(speed : int) -> void:
 	self.speed = speed
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var parent = get_parent()
 	if Global.CurrentPlayer != null:
 		parent.velocity = (Global.CurrentPlayer.position - parent.position).normalized() * self.speed

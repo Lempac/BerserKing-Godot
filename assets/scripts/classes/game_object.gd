@@ -27,6 +27,8 @@ func spawn() -> void:
 	Global.object_spawned.emit(data)
 
 func despawn() -> void:
+	visible = false
+	process_mode=Node.PROCESS_MODE_DISABLED
 	queue_free()
 	Global.object_despawned.emit(data)
 	

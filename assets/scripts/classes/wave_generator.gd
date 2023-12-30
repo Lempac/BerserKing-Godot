@@ -7,7 +7,7 @@ class_name WaveGenerator
 ##Waves to use.
 @export var wave_data : WaveResource
 ##Entity to lock on the generation(spawn tilemap in it parent).
-@export var lock_to_generator : Generator
+@export var lock_to_entity : CharacterBody2D
 ##List of entities. 
 @export var entities := {}
 ##Spawn area
@@ -17,20 +17,20 @@ class_name WaveGenerator
 
 var cooldown = Timer.new()
 
-func _init(wave_data: WaveResource, lock_to_generator: Generator) -> void:
+func _init(wave_data: WaveResource, lock_to_entity: CharacterBody2D) -> void:
 	name = "WaveGenerator"
 	self.wave_data = wave_data
-	self.lock_to_generator = lock_to_generator
+	self.lock_to_entity = lock_to_entity
 	self.cooldown.one_shot = true
 	add_child(self.cooldown)
-	Global.wave_generate_inited.emit(self.lock_to_generator)
+	Global.wave_generate_inited.emit(self.wave_data)
 
 ##Start entity spawning, if not started.
 func generate() -> void:
 	#if self.is_running:
 		#return
 	#self.is_running = true
-	self.lock_to_generator.tilemap.tree_exiting.connect(queue_free)
+	self.lock_to_entity.tree_exiting.connect(queue_free)
 	#while self.is_running:
 	self.cooldown.start(self.wave_data.wave_spawn_cooldown)
 	for wave_entry in self.wave_data.wave_enteries:
@@ -38,11 +38,10 @@ func generate() -> void:
 			await self.cooldown.timeout
 			self.spawn_area = DisplayServer.window_get_size()/2
 			var entity = Entity.new(wave_entry.entity)
-			entity.position = get_position(self.lock_to_generator.lock_to_entity)
+			entity.position = get_position(self.lock_to_entity)
 			add_child(entity)
 			self.cooldown.start(self.wave_data.wave_spawn_cooldown)
-	#self.is_running = self.lock_to_generator.is_running
-	Global.wave_generate_stopped.emit(self.lock_to_generator)
+	Global.wave_generate_stopped.emit(self.wave_data, self.lock_to_entity)
 
 ##
 func get_position(lock_entity: CharacterBody2D) -> Vector2i:

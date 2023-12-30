@@ -1,10 +1,8 @@
 extends Node
 ##Generator of level tile maps, generates.
-class_name Generator
+class_name LevelGenerator
 ##Tilemap to use.
 @export var level_data : LevelTileMap
-##Items to use.
-@export var items_data : Array[ItemResource]
 ##Entity to lock on the generation(spawn tilemap in it parent).
 @export var lock_to_entity : CharacterBody2D
 ##Is generator running?
@@ -13,10 +11,6 @@ class_name Generator
 @export var chunks_loaded := {}
 ##Dictionary of unloaded chunks, key is chunk position.
 @export var chunks_unloaded := {}
-##Dictionary of loaded items, key is chunk position.
-@export var items_loaded := {}
-##Dictionary of unloaded items, key is chunk position.
-@export var items_unloaded := {}
 ##Range of tile generation, it will generate in radius, so it range*2+1.
 @export var range := 1
 ##Seed used in generation.
@@ -28,7 +22,7 @@ class_name Generator
 ##Template for empty tile.
 @export var empty_tile : TileMapPattern
 
-func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to_entity : CharacterBody2D, seed := 0) -> void:
+func _init(level_data : LevelTileMap,  lock_to_entity : CharacterBody2D, seed := 0) -> void:
 	name = "Generator"
 	self.empty_tile = TileMapPattern.new()
 	self.level_data = level_data
@@ -36,22 +30,12 @@ func _init(level_data : LevelTileMap, items_data : Array[ItemResource],  lock_to
 	for x in self.level_data.tile_size.x:
 		for y in self.level_data.tile_size.y:
 			self.empty_tile.set_cell(Vector2(x, y))
-	self.items_data = items_data
 	self.lock_to_entity = lock_to_entity
 	self.seed = seed
 	self.noise_generator.seed = seed
 	self.lock_to_entity.tree_exiting.connect(func(): 
 		tilemap.queue_free()
 		queue_free()
-	)
-	Global.generate_on_new_loaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
-		pass
-	)
-	Global.generate_on_unloaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
-		pass
-	)
-	Global.generate_on_loaded.connect(func(position : Vector2i, tile : LevelTileMap.Tile):
-		pass
 	)
 	Global.generate_inited.emit(level_data, lock_to_entity)
 

@@ -8,9 +8,10 @@
 [resource]
 script = ExtResource("1_acwhl")
 damage = 2
+speed = 50
 health = 10
 max_health = 10
-health_regenerate = 2
+health_regenerate = 1
 name = "Worm"
 sprite_frames = ExtResource("2_syj6b")
 shape = SubResource("RectangleShape2D_nmhwi")

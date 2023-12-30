@@ -20,19 +20,25 @@ signal wave_started(wave_data : WaveResource)
 signal wave_stepped(wave_data : WaveResource)
 signal wave_ended(wave_data : WaveResource)
 
-#Generator
-signal generate_inited(level_data : LevelTileMap, lock_to_entity : Area2D)
+#Level generator
+signal generate_inited(level_data : LevelTileMap, lock_to_entity : CharacterBody2D)
 signal generate_on_new_loaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_on_loaded(position : Vector2i, tile : LevelTileMap.Tile)
 signal generate_on_unloaded(position : Vector2i, tile : LevelTileMap.Tile)
-signal generate_stopped(level_data : LevelTileMap, lock_to_entity : Area2D)
+signal generate_stopped(level_data : LevelTileMap, lock_to_entity : CharacterBody2D)
 
 #Wave generator
-signal wave_generate_inited(wave_data : WaveResource, lock_to_generator : Generator)
+signal wave_generate_inited(wave_data : WaveResource, lock_to_entity : CharacterBody2D)
 signal wave_generate_on_new_spawned(position : Vector2i, entity : Entity)
 signal wave_generate_on_spawned(position : Vector2i, entity : Entity)
 signal wave_generate_on_despawned(position : Vector2i, entity : Entity)
-signal wave_generate_stopped(wave_data : WaveResource, lock_to_generator : Generator)
+signal wave_generate_stopped(wave_data : WaveResource, lock_to_entity : CharacterBody2D)
+
+#Item generator
+signal item_generate_stopped()
+signal item_generate_on_spawned()
+signal item_generate_on_new_spawned()
+signal item_generate_inited()
 
 #Object
 signal object_spawned(object : GameObjectResource)
