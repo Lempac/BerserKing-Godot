@@ -8,6 +8,7 @@ class_name EntityResource
 ## Per second
 @export var health_regenerate : int 
 
+@warning_ignore("shadowed_variable")
 func _init(name : String = "", health : int = 0, max_health : int = 0, health_regenerate : int = 0, damage : int = 0, speed : int = 0, sprite_frames : SpriteFrames = null, shape : Shape2D = null) -> void:
 	super._init(name, sprite_frames, shape)
 	self.damage = damage

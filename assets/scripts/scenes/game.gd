@@ -8,11 +8,11 @@ func _ready():
 	var player = Player.new(load("res://data/entities/player.tres"))
 	add_child(player)
 	self.level_generator = LevelGenerator.new(Global.CurrentLevel, Global.CurrentPlayer)
-	self.level_generator.range = 2
+	self.level_generator.load_range = 2
 	self.level_generator.generate()
 	self.wave_generator = WaveGenerator.new(load("res://data/waves/basic.tres"), Global.CurrentPlayer)
 	add_child(self.wave_generator)
 	self.wave_generator.generate()
-	self.item_generator = ItemGenerator.new()
+	self.item_generator = ItemGenerator.new([])
 	add_child(self.item_generator)
 	self.item_generator.generate()

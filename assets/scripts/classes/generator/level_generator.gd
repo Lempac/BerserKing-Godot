@@ -4,17 +4,17 @@ class_name LevelGenerator
 ##Tilemap to use.
 @export var level_data : LevelTileMap
 ##Entity to lock on the generation(spawn tilemap in it parent).
-@export var lock_to_entity : CharacterBody2D
+@export var lock_to_entity : Node2D
 ##Is generator running?
 @export var is_running = false
 ##Dictionary of loaded chunks, key is chunk position.
 @export var chunks_loaded := {}
 ##Dictionary of unloaded chunks, key is chunk position.
 @export var chunks_unloaded := {}
-##Range of tile generation, it will generate in radius, so it range*2+1.
-@export var range := 1
+##Range of tile generation, it will generate in radius, so it load_range*2+1.
+@export var load_range := 1
 ##Seed used in generation.
-@export var seed = 0
+@export var gen_seed = 0
 ##Generators noise function.
 @export var noise_generator = FastNoiseLite.new()
 ##Tilemap it generate on.
@@ -22,7 +22,8 @@ class_name LevelGenerator
 ##Template for empty tile.
 @export var empty_tile : TileMapPattern
 
-func _init(level_data : LevelTileMap,  lock_to_entity : CharacterBody2D, seed := 0) -> void:
+@warning_ignore("shadowed_variable")
+func _init(level_data : LevelTileMap,  lock_to_entity : Node2D, gen_seed := 0) -> void:
 	name = "Generator"
 	self.empty_tile = TileMapPattern.new()
 	self.level_data = level_data
@@ -31,8 +32,8 @@ func _init(level_data : LevelTileMap,  lock_to_entity : CharacterBody2D, seed :=
 		for y in self.level_data.tile_size.y:
 			self.empty_tile.set_cell(Vector2(x, y))
 	self.lock_to_entity = lock_to_entity
-	self.seed = seed
-	self.noise_generator.seed = seed
+	self.gen_seed = gen_seed
+	self.noise_generator.seed = self.gen_seed
 	self.lock_to_entity.tree_exiting.connect(func(): 
 		tilemap.queue_free()
 		queue_free()
@@ -55,9 +56,9 @@ func generate() -> void:
 	while self.is_running:
 		var position_tilemap = self.tilemap.local_to_map(self.lock_to_entity.position)
 		var position = Vector2i(floor(float(position_tilemap.x) / self.level_data.tile_size.x), floor(float(position_tilemap.y) / self.level_data.tile_size.y)) * self.level_data.tile_size
-		var range_with_tile_size = self.range*self.level_data.tile_size
-		for x in range(position.x - range_with_tile_size.x, position.x + (self.range+1)*self.level_data.tile_size.x, self.level_data.tile_size.x):
-			for y in range(position.y - range_with_tile_size.y, position.y + (self.range+1)*self.level_data.tile_size.y, self.level_data.tile_size.y):
+		var range_with_tile_size = self.load_range*self.level_data.tile_size
+		for x in range(position.x - range_with_tile_size.x, position.x + (self.load_range+1)*self.level_data.tile_size.x, self.level_data.tile_size.x):
+			for y in range(position.y - range_with_tile_size.y, position.y + (self.load_range+1)*self.level_data.tile_size.y, self.level_data.tile_size.y):
 					chunk_load(Vector2i(x,y), chunks_unloaded.get(Vector2i(x,y)))
 		var area_of_chunks = Rect2i(position - range_with_tile_size, range_with_tile_size * 2 + self.level_data.tile_size)
 		for chunk_position in chunks_loaded:

@@ -20,6 +20,7 @@ class Tile extends Resource:
 	var connection_data : Array[int]
 	var type : int
 	var layer : int
+	@warning_ignore("shadowed_variable")
 	func _init(tile_position : Vector2i, type: int, layer : int, pattern : TileMapPattern) -> void:
 		self.tile_position = tile_position
 		self.type = type
@@ -28,15 +29,15 @@ class Tile extends Resource:
 
 ##Returns list of tilemaps tiles
 func process_level_tiles(layer := 0) -> Array[Tile]:
-	var tiles: Array[Tile]
+	var data_tiles: Array[Tile] = []
 	var tile_position := Vector2i(0, 0)
 	while has_tile(tile_position, layer):
 		while has_tile(tile_position, layer):
-			tiles.append(get_tile(tile_position, layer))
+			data_tiles.append(get_tile(tile_position, layer))
 			tile_position.x += tile_size.x
 		tile_position.x = 0
 		tile_position.y += tile_size.y
-	return tiles
+	return data_tiles
 
 ##Check if tilemap has a tile in rect.
 func has_tile(tile_position: Vector2i, layer := 0) -> bool:
@@ -48,7 +49,6 @@ func has_tile(tile_position: Vector2i, layer := 0) -> bool:
 
 ##Returns tile container from tilemap
 func get_tile(tile_position: Vector2i, layer: int = 0) -> Tile:
-	var pattern : TileMapPattern
 	var positions : Array[Vector2i] = []
 	for x in tile_size.x:
 		for y in tile_size.y:

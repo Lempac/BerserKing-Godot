@@ -10,7 +10,7 @@ extends Node
 
 #Current Entities
 @export var CurrentLevel : LevelTileMap
-@export var CurrentPlayer : CharacterBody2D
+@export var CurrentPlayer : Player
 
 #endregion
 
@@ -41,8 +41,8 @@ signal item_generate_on_new_spawned()
 signal item_generate_inited()
 
 #Object
-signal object_spawned(object : GameObjectResource)
-signal object_despawned(object : GameObjectResource)
+signal object_spawned(object : GameObject)
+signal object_despawned(object : GameObject)
 
 #Health
 signal health_took_damage(health : Health)

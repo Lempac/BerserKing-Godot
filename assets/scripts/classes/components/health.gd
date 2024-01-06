@@ -15,6 +15,7 @@ func take_damage(damage : int):
 		get_parent().despawn()
 		Global.health_killed.emit(get_parent())
 	
+@warning_ignore("shadowed_variable")
 func _init(max_health : int, health : int, health_regenerate : int = 0):
 	self.cooldown_take_damage.one_shot = true
 	self.cooldown_heal.one_shot = true
@@ -31,7 +32,7 @@ func on_touch(entity : Entity, other : Entity):
 			take_damage(other.damage)
 			self.cooldown_take_damage.start(0.1)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if self.cooldown_heal.time_left == 0:
 		self.health=mini(self.health+self.health_regenerate, self.max_health)
 		self.cooldown_heal.start(1)
