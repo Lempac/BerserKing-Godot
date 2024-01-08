@@ -6,6 +6,7 @@ class_name ItemGenerator
 
 @warning_ignore("shadowed_variable")
 func _init(item_resources : Array[ItemResource]) -> void:
+	name = "ItemGenerator"
 	self.item_resources = item_resources
 
 func generate() -> void:

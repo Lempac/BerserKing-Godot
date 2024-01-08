@@ -17,6 +17,9 @@ func take_damage(damage : int):
 	
 @warning_ignore("shadowed_variable")
 func _init(max_health : int, health : int, health_regenerate : int = 0):
+	name = "Health"
+	self.cooldown_take_damage.name = "cooldown_take_damage"
+	self.cooldown_heal.name = "cooldown_heal"
 	self.cooldown_take_damage.one_shot = true
 	self.cooldown_heal.one_shot = true
 	add_child(self.cooldown_take_damage)

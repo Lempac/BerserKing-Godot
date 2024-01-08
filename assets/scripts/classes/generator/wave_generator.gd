@@ -7,7 +7,7 @@ class_name WaveGenerator
 ##Waves to use.
 @export var wave_data : WaveResource
 ##Entity to lock on the generation(spawn tilemap in it parent).
-@export var lock_to_entity : Node2D
+@export var lock_to_entity : Entity
 ##List of entities. 
 @export var entities : Array[Entity] = []
 ##Spawn area
@@ -18,7 +18,7 @@ class_name WaveGenerator
 var cooldown = Timer.new()
 
 @warning_ignore("shadowed_variable")
-func _init(wave_data: WaveResource, lock_to_entity: Node2D) -> void:
+func _init(wave_data: WaveResource, lock_to_entity: Entity) -> void:
 	name = "WaveGenerator"
 	self.wave_data = wave_data
 	self.lock_to_entity = lock_to_entity
@@ -39,14 +39,14 @@ func generate() -> void:
 			await self.cooldown.timeout
 			self.spawn_area = DisplayServer.window_get_size()/2
 			var entity = Entity.new(wave_entry.entity)
-			entity.position = get_position(self.lock_to_entity)
+			entity.controller.position = get_position(self.lock_to_entity)
 			entities.append(entity)
 			add_child(entity)
 			self.cooldown.start(self.wave_data.wave_spawn_cooldown)
 	Global.wave_generate_stopped.emit(self.wave_data, self.lock_to_entity)
 
 ##
-func get_position(lock_entity: Node2D) -> Vector2i:
+func get_position(lock_entity: Entity) -> Vector2i:
 	var position_x = randi_range(-(self.spawn_area.x+self.spawn_range.x), self.spawn_area.x+self.spawn_range.y)
 	var position_y = randi_range(-(self.spawn_area.y+self.spawn_range.w), self.spawn_area.y+self.spawn_range.z)
 	if position_x < self.spawn_area.x and position_x > -self.spawn_area.x:
@@ -54,7 +54,7 @@ func get_position(lock_entity: Node2D) -> Vector2i:
 			position_y = maxi(-self.spawn_area.y, position_y)
 		else:
 			position_y = maxi(self.spawn_area.y, position_y)
-	return Vector2i(position_x, position_y) + Vector2i(lock_entity.position)
+	return Vector2i(position_x, position_y) + Vector2i(lock_entity.controller.position)
 
 ##Stops the generator, returns if stopped.
 #func stop() -> bool:

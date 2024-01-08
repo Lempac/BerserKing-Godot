@@ -19,7 +19,8 @@
 				"df0a1bdb-dd7a-4a88-8783-38d0b6a9a7ef",
 				"c869bd62-fe7c-495e-af5b-99e499119ebc",
 				"72d16102-d53b-4058-a34d-ce95794c10e9",
-				"6157189b-9ba2-4f15-a953-38fa382f3a18"
+				"6157189b-9ba2-4f15-a953-38fa382f3a18",
+				"42c06249-4cd6-41f2-bd88-10221aff3f68"
 			]
 		},
 		{
@@ -48,7 +49,7 @@
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
 			"steps": [
 				{
-					"details": "spawning",
+					"details": "spawning in item genrator",
 					"done": false
 				},
 				{
@@ -215,6 +216,22 @@
 				},
 				{
 					"details": "event control",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "42c06249-4cd6-41f2-bd88-10221aff3f68",
+			"title": "Animations",
+			"description": "",
+			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
+			"steps": [
+				{
+					"details": "asset check",
+					"done": false
+				},
+				{
+					"details": "animate",
 					"done": false
 				}
 			]

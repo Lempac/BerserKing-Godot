@@ -4,7 +4,7 @@ class_name LevelGenerator
 ##Tilemap to use.
 @export var level_data : LevelTileMap
 ##Entity to lock on the generation(spawn tilemap in it parent).
-@export var lock_to_entity : Node2D
+@export var lock_to_entity : Entity
 ##Is generator running?
 @export var is_running = false
 ##Dictionary of loaded chunks, key is chunk position.
@@ -23,7 +23,7 @@ class_name LevelGenerator
 @export var empty_tile : TileMapPattern
 
 @warning_ignore("shadowed_variable")
-func _init(level_data : LevelTileMap,  lock_to_entity : Node2D, gen_seed := 0) -> void:
+func _init(level_data : LevelTileMap,  lock_to_entity : Entity, gen_seed := 0) -> void:
 	name = "Generator"
 	self.empty_tile = TileMapPattern.new()
 	self.level_data = level_data
@@ -54,7 +54,7 @@ func generate() -> void:
 		self.tilemap.set_layer_z_index(layer, self.level_data.get_layer_z_index(layer))
 	self.lock_to_entity.add_sibling(self.tilemap)
 	while self.is_running:
-		var position_tilemap = self.tilemap.local_to_map(self.lock_to_entity.position)
+		var position_tilemap = self.tilemap.local_to_map(self.lock_to_entity.controller.position)
 		var position = Vector2i(floor(float(position_tilemap.x) / self.level_data.tile_size.x), floor(float(position_tilemap.y) / self.level_data.tile_size.y)) * self.level_data.tile_size
 		var range_with_tile_size = self.load_range*self.level_data.tile_size
 		for x in range(position.x - range_with_tile_size.x, position.x + (self.load_range+1)*self.level_data.tile_size.x, self.level_data.tile_size.x):

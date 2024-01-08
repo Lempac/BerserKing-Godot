@@ -13,6 +13,6 @@ func _ready():
 	self.wave_generator = WaveGenerator.new(load("res://data/waves/basic.tres"), Global.CurrentPlayer)
 	add_child(self.wave_generator)
 	self.wave_generator.generate()
-	self.item_generator = ItemGenerator.new([])
+	self.item_generator = ItemGenerator.new([load("res://data/items/chest.tres")])
 	add_child(self.item_generator)
 	self.item_generator.generate()

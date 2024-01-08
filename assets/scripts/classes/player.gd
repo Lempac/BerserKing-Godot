@@ -13,7 +13,6 @@ class PlayerController extends Controller:
 			velocity = velocity.normalized() * self.speed
 		var parent : Entity = get_parent()
 		self.velocity = velocity
-		parent.position = position
 		if move_and_slide():
 			self.collision(parent)
 
@@ -26,6 +25,7 @@ func _init(data : EntityResource) -> void:
 	self.sprite_anim.reparent(self.controller)
 	self.camera = Camera2D.new()
 	self.inventory = Inventory.new(4)
+	#add_child(self.camera)
 	self.controller.add_child(self.camera)
 	add_child(self.inventory)
 	Global.CurrentPlayer = self

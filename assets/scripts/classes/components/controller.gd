@@ -5,13 +5,13 @@ class_name Controller
 
 @warning_ignore("shadowed_variable")
 func _init(speed : int) -> void:
+	name = "Controller"
 	self.speed = speed
 	
 func _physics_process(_delta: float) -> void:
-	var parent : Node2D = get_parent()
+	var parent : Node = get_parent()
 	if Global.CurrentPlayer != null:
-		velocity = (Global.CurrentPlayer.position - parent.position).normalized() * self.speed
-	parent.position = position
+		velocity = (Global.CurrentPlayer.controller.position - position).normalized() * self.speed
 	if move_and_slide():
 		self.collision(parent)
 	
