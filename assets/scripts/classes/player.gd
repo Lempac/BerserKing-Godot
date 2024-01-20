@@ -12,20 +12,23 @@ class PlayerController extends Controller:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * self.speed
 		var parent : Entity = get_parent()
-		self.velocity = velocity
-		if move_and_slide():
-			self.collision(parent)
+		parent.hitbox.velocity = velocity
 
 func _init(data : EntityResource) -> void:
 	super._init(data)
 	remove_child(self.controller)
 	self.controller = PlayerController.new(400)
 	add_child(self.controller)
-	self.hitbox.reparent(self.controller)
-	self.sprite_anim.reparent(self.controller)
+	#self.hitbox.reparent(self.controller)
+	#self.sprite_anim.reparent(self.controller)
 	self.camera = Camera2D.new()
 	self.inventory = Inventory.new(4)
-	#add_child(self.camera)
-	self.controller.add_child(self.camera)
+	add_child(self.camera)
+	#self.controller.add_child(self.camera)
 	add_child(self.inventory)
 	Global.CurrentPlayer = self
+
+@warning_ignore("unused_parameter")
+func _process(delta: float) -> void:
+	if hitbox:
+		self.camera.position = self.hitbox.position

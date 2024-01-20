@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node
 
 class_name Controller
 @export var speed : int
@@ -9,13 +9,8 @@ func _init(speed : int) -> void:
 	self.speed = speed
 	
 func _physics_process(_delta: float) -> void:
-	var parent : Node = get_parent()
+	var parent : GameObject = get_parent()
+	if not parent.hitbox:
+		return
 	if Global.CurrentPlayer != null:
-		velocity = (Global.CurrentPlayer.controller.position - position).normalized() * self.speed
-	if move_and_slide():
-		self.collision(parent)
-	
-func collision(parent):
-	var last_collision = get_last_slide_collision()
-	if last_collision != null:
-		Global.controller_touch.emit(parent, last_collision.get_collider().get_parent() as Entity)
+		parent.hitbox.velocity = (Global.CurrentPlayer.hitbox.position - parent.hitbox.position).normalized() * self.speed

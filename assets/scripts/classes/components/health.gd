@@ -29,9 +29,11 @@ func _init(max_health : int, health : int, health_regenerate : int = 0):
 	self.health_regenerate = health_regenerate
 	Global.controller_touch.connect(on_touch)
 	
-func on_touch(entity : Entity, other : Entity):
+func on_touch(game_objct : GameObject, other : GameObject):
+	if not other is Entity:
+		return
 	if self.cooldown_take_damage.time_left == 0:
-		if entity == get_parent() and (other == Global.CurrentPlayer or entity == Global.CurrentPlayer):
+		if game_objct == get_parent() and (other == Global.CurrentPlayer or game_objct == Global.CurrentPlayer):
 			take_damage(other.damage)
 			self.cooldown_take_damage.start(0.1)
 

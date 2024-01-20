@@ -39,7 +39,7 @@ func generate() -> void:
 			await self.cooldown.timeout
 			self.spawn_area = DisplayServer.window_get_size()/2
 			var entity = Entity.new(wave_entry.entity)
-			entity.controller.position = get_position(self.lock_to_entity)
+			entity.hitbox.position = get_position(self.lock_to_entity)
 			entities.append(entity)
 			add_child(entity)
 			self.cooldown.start(self.wave_data.wave_spawn_cooldown)
@@ -54,7 +54,7 @@ func get_position(lock_entity: Entity) -> Vector2i:
 			position_y = maxi(-self.spawn_area.y, position_y)
 		else:
 			position_y = maxi(self.spawn_area.y, position_y)
-	return Vector2i(position_x, position_y) + Vector2i(lock_entity.controller.position)
+	return Vector2i(position_x, position_y) + Vector2i(lock_entity.hitbox.position)
 
 ##Stops the generator, returns if stopped.
 #func stop() -> bool:

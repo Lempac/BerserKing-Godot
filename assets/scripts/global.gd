@@ -21,11 +21,11 @@ signal wave_stepped(wave_data : WaveResource)
 signal wave_ended(wave_data : WaveResource)
 
 #Level generator
-signal generate_inited(level_data : LevelTileMap, lock_to_entity : CharacterBody2D)
-signal generate_on_new_loaded(position : Vector2i, tile : LevelTileMap.Tile)
-signal generate_on_loaded(position : Vector2i, tile : LevelTileMap.Tile)
-signal generate_on_unloaded(position : Vector2i, tile : LevelTileMap.Tile)
-signal generate_stopped(level_data : LevelTileMap, lock_to_entity : CharacterBody2D)
+signal level_generate_inited(level_data : LevelTileMap, lock_to_entity : CharacterBody2D)
+signal level_generate_on_new_loaded(position : Vector2i, tile : LevelTileMap.Tile)
+signal level_generate_on_loaded(position : Vector2i, tile : LevelTileMap.Tile)
+signal level_generate_on_unloaded(position : Vector2i, tile : LevelTileMap.Tile)
+signal level_generate_stopped(level_data : LevelTileMap, lock_to_entity : CharacterBody2D)
 
 #Wave generator
 signal wave_generate_inited(wave_data : WaveResource, lock_to_entity : CharacterBody2D)
@@ -55,7 +55,7 @@ signal item_picked_up(item: ItemResource)
 
 
 #Controller
-signal controller_touch(entity : Entity, other : Entity)
+signal controller_touch(game_objct : GameObject, other : GameObject)
 
 
 #endregion

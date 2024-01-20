@@ -1,13 +1,11 @@
 extends Node
 
 class_name Inventory
-var size: int
-
-class Slot:
-	pass
+var max_size: int
+var items: Array[Item]
 
 @warning_ignore("shadowed_variable")
-func _init(size) -> void:
+func _init(max_size) -> void:
 	name = "Inventory"
-	self.size = size
+	self.max_size = max_size
 	

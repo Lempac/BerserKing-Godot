@@ -38,7 +38,7 @@ func _init(level_data : LevelTileMap,  lock_to_entity : Entity, gen_seed := 0) -
 		tilemap.queue_free()
 		queue_free()
 	)
-	Global.generate_inited.emit(level_data, lock_to_entity)
+	Global.level_generate_inited.emit(level_data, lock_to_entity)
 
 ##Start chunk generation, if not started.
 func generate() -> void:
@@ -54,7 +54,7 @@ func generate() -> void:
 		self.tilemap.set_layer_z_index(layer, self.level_data.get_layer_z_index(layer))
 	self.lock_to_entity.add_sibling(self.tilemap)
 	while self.is_running:
-		var position_tilemap = self.tilemap.local_to_map(self.lock_to_entity.controller.position)
+		var position_tilemap = self.tilemap.local_to_map(self.lock_to_entity.hitbox.position)
 		var position = Vector2i(floor(float(position_tilemap.x) / self.level_data.tile_size.x), floor(float(position_tilemap.y) / self.level_data.tile_size.y)) * self.level_data.tile_size
 		var range_with_tile_size = self.load_range*self.level_data.tile_size
 		for x in range(position.x - range_with_tile_size.x, position.x + (self.load_range+1)*self.level_data.tile_size.x, self.level_data.tile_size.x):
@@ -78,8 +78,8 @@ func chunk_load(position : Vector2i, tile : LevelTileMap.Tile = null) -> void:
 		chunks_unloaded.erase(position)
 	self.tilemap.set_pattern(chunks_loaded[position].layer, position, chunks_loaded[position].pattern) 
 	if tile == null:
-		Global.generate_on_new_loaded.emit(position, tile)
-	Global.generate_on_loaded.emit(position, tile)
+		Global.level_generate_on_new_loaded.emit(position, tile)
+	Global.level_generate_on_loaded.emit(position, tile)
 
 ##Unload chunk at position.
 func chunk_unload(position : Vector2i) -> void:
@@ -88,7 +88,7 @@ func chunk_unload(position : Vector2i) -> void:
 	chunks_unloaded[position] = chunks_loaded[position]
 	chunks_loaded.erase(position)
 	self.tilemap.set_pattern(chunks_unloaded[position].layer, position, self.empty_tile)
-	Global.generate_on_unloaded.emit(position, chunks_unloaded[position])
+	Global.level_generate_on_unloaded.emit(position, chunks_unloaded[position])
 
 ##Stops the generator, returns if stopped.
 func stop() -> bool:

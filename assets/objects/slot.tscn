@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/menus/slot.gd" id="1_tuodf"]
 
-[node name="Slot" type="Panel"]
+[node name="Slot" type="Panel" node_paths=PackedStringArray("image")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,6 +13,7 @@ offset_bottom = -500.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tuodf")
+image = NodePath("BoxContainer/AnimatedSprite2D")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
