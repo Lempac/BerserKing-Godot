@@ -35,10 +35,7 @@
 		{
 			"uuid": "7eb83d3e-44c7-4b01-b02e-5c4b72692a27",
 			"title": "Done",
-			"tasks": [
-				"6c86e9f4-2f52-46b2-b7e0-1fdb74bfb9cb",
-				"0c873f8f-4fc3-4fd2-b4e4-1071415e009a"
-			]
+			"tasks": []
 		}
 	],
 	"tasks": [
@@ -160,22 +157,6 @@
 				},
 				{
 					"details": "spawing entities",
-					"done": true
-				}
-			]
-		},
-		{
-			"uuid": "6c86e9f4-2f52-46b2-b7e0-1fdb74bfb9cb",
-			"title": "Game object",
-			"description": "",
-			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
-			"steps": [
-				{
-					"details": "spawing",
-					"done": true
-				},
-				{
-					"details": "despawing",
 					"done": true
 				}
 			]

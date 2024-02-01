@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		new_velocity.y -= 1
 	
-	if new_velocity.length() == 0 :
+	if new_velocity.length() == 0:
 		velocity = clamp(velocity * drag, Vector2.ZERO, velocity) 
 	else:
 		velocity = new_velocity.normalized() * speed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://bi608gdc816tk"]
+[gd_scene load_steps=132 format=3 uid="uid://bi608gdc816tk"]
 
 [ext_resource type="Script" path="res://assets/scripts/scenes/test_scene.gd" id="1_s00eb"]
 [ext_resource type="SpriteFrames" uid="uid://bu5ithdr85i7c" path="res://assets/textures/sprites/worm/worm.tres" id="2_gtp0y"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://dnsqsxxk8t3vk" path="res://assets/textures/sprites/spider/animations/run_4.png" id="37_qemgr"]
 [ext_resource type="Texture2D" uid="uid://c64keofy5xcw4" path="res://assets/textures/sprites/tree/animations/all.png" id="38_grcxw"]
 [ext_resource type="Texture2D" uid="uid://jagknwyki4j6" path="res://assets/textures/sprites/zombie/animations/all.png" id="39_hb3l1"]
+[ext_resource type="PackedScene" uid="uid://d3sxsi757kua3" path="res://assets/objects/entities/player.tscn" id="40_evau7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dajro"]
 atlas = ExtResource("3_iqted")
@@ -945,3 +946,5 @@ position = Vector2(-31, 82)
 position = Vector2(-137, 12)
 scale = Vector2(1.435, 1.07125)
 sprite_frames = SubResource("SpriteFrames_8xj3i")
+
+[node name="Player" parent="." instance=ExtResource("40_evau7")]
