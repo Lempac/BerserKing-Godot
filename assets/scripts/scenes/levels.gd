@@ -1,17 +1,23 @@
 extends Control
 
-@export var levels : Control
-@export var level_tiles : PackedScene
+@export var levels_menu : Control
+@export_dir var levels_path
 @export var level_icon : PackedScene
 
 func _ready():
-	for level in self.level_tiles.instantiate().get_children():
-		if level.level_name == "" or level.tile_size == Vector2i(0,0) or level.connection_size == Vector2i(0,0):
-			continue
-		var icon = self.level_icon.instantiate()
-		level.tiles = level.process_level_tiles()
-		icon.level_data = level
-		levels.add_child(icon)
+	var dir = DirAccess.open(levels_path)
+	dir.list_dir_begin()
+	while true:
+		var file_name = dir.get_next()
+		if file_name == "":
+			break
+		elif !file_name.begins_with("."):
+			var level : TileMap = load(levels_path + "/" + file_name).instantiate()
+			var icon = self.level_icon.instantiate()
+			icon.level = level
+			icon.title.text = level.name
+			levels_menu.add_child(icon)
+	dir.list_dir_end()
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file(Global.MainMenuScene)
