@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 @export var speed : int
-
 @export var drag : float
+@export var health : int
+@export var max_health : int
+@export var regen : int
+@export var touch_damage : int
 
 func _ready() -> void:
 	Global.CurrentPlayer = self
@@ -19,7 +22,17 @@ func _process(delta: float) -> void:
 		new_velocity.y -= 1
 	
 	if new_velocity.length() == 0:
-		velocity = clamp(velocity * drag, Vector2.ZERO, velocity) 
+		velocity = velocity * drag
 	else:
 		velocity = new_velocity.normalized() * speed
-	move_and_slide()
+	if move_and_slide():
+		var last_touch = get_last_slide_collision()
+		if last_touch != null:
+			var other = last_touch.get_collider()
+			if "health" in other:
+				other.health -= touch_damage
+	
+	if health <= 0:
+		queue_free()
+	if health < max_health:
+		health = max(max_health, health+regen)
