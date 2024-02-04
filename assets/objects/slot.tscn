@@ -1,16 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwywrgy2s8eli"]
+[gd_scene load_steps=3 format=3 uid="uid://bwywrgy2s8eli"]
 
 [ext_resource type="Script" path="res://assets/scripts/menus/slot.gd" id="1_tuodf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvrf8"]
 bg_color = Color(0.6, 0.6, 0.6, 0.384314)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xwc4"]
-
 [node name="Slot" type="Panel" node_paths=PackedStringArray("image")]
 custom_minimum_size = Vector2(69, 69)
 offset_right = 69.0
 offset_bottom = 69.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_cvrf8")
 script = ExtResource("1_tuodf")
 image = NodePath("TextureRect")
@@ -22,4 +21,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_3xwc4")

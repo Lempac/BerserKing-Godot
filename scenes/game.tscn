@@ -10,6 +10,8 @@ script = ExtResource("1_dxqvq")
 spawn_rate = 0.4
 spawn_offset = Vector2i(100, 100)
 
+[node name="GameUI" parent="." instance=ExtResource("3_2wiq8")]
+
 [node name="Player" parent="." instance=ExtResource("2_qvi8q")]
 collision_mask = 3
 motion_mode = 1
@@ -24,7 +26,5 @@ collision_layer = 2
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="GameUI" parent="." instance=ExtResource("3_2wiq8")]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
