@@ -1,5 +1,3 @@
 extends Panel
 
-@export var image : AnimatedSprite2D
-
-
+@export var image : TextureRect

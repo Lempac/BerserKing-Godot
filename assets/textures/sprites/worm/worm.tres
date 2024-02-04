@@ -1,11 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=52 format=3 uid="uid://bu5ithdr85i7c"]
+[gd_resource type="SpriteFrames" load_steps=51 format=3 uid="uid://bu5ithdr85i7c"]
 
 [ext_resource type="Texture2D" uid="uid://c5pflpxm8mee6" path="res://assets/textures/sprites/worm/attack.png" id="1_ltbqw"]
 [ext_resource type="Texture2D" uid="uid://dbco2qx7ojq7k" path="res://assets/textures/sprites/worm/death.png" id="2_op1r2"]
 [ext_resource type="Texture2D" uid="uid://bw8dus24ellsg" path="res://assets/textures/sprites/worm/get_hit.png" id="3_dlxde"]
 [ext_resource type="Texture2D" uid="uid://cf11p0u6osm5k" path="res://assets/textures/sprites/worm/idle.png" id="4_po6i0"]
 [ext_resource type="Texture2D" uid="uid://i8gw5w18fvub" path="res://assets/textures/sprites/worm/walk.png" id="5_m6pv3"]
-[ext_resource type="Texture2D" uid="uid://bt0mccgnrqjqr" path="res://assets/textures/sprites/bandit/animations/all.png" id="6_ujqm7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5dtf"]
 atlas = ExtResource("1_ltbqw")
@@ -347,13 +346,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_ujqm7")
-}],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }]

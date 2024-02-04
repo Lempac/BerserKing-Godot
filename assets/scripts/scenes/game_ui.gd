@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export var inventory : GridContainer
+
 func _init() -> void:
 	Global.CurrentGameUI = self
 
