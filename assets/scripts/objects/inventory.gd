@@ -7,8 +7,9 @@ extends GridContainer
 func _ready() -> void:
 	columns = size_inv
 
-func add_slot(sprite_f : SpriteFrames):
+func add_slot(texture : Texture):
 	if get_child_count() == size_inv:
 		return
 	var new_slot = slot.instantiate()
+	new_slot.image.texture = texture
 	add_child(new_slot)

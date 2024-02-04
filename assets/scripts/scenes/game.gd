@@ -8,8 +8,6 @@ var worm = load("res://assets/objects/entities/worm.tscn")
 func _ready():
 	add_child(Global.CurrentLevel)
 	$SpawnTimer.wait_time = spawn_rate
-	for i in range(5):
-		Global.CurrentGameUI.inventory.add_slot(load("res://assets/textures/sprites/worm/worm.tres"))
 	
 func spawn():
 	var new_enemy : CharacterBody2D = worm.instantiate()

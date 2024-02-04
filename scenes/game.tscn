@@ -12,17 +12,16 @@ spawn_offset = Vector2i(100, 100)
 
 [node name="GameUI" parent="." instance=ExtResource("3_2wiq8")]
 
+[node name="Chest" parent="." instance=ExtResource("4_gflwx")]
+position = Vector2(86, 99)
+
 [node name="Player" parent="." instance=ExtResource("2_qvi8q")]
-collision_mask = 3
+position = Vector2(180, 133)
 motion_mode = 1
 health = 100
 max_health = 100
 regen = 2
 touch_damage = 5
-
-[node name="Item" parent="." instance=ExtResource("4_gflwx")]
-position = Vector2(404, 188)
-collision_layer = 2
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true

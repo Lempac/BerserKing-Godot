@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/scenes/game_ui.gd" id="1_4t73b"]
 [ext_resource type="Script" path="res://assets/scripts/objects/inventory.gd" id="2_jr1ec"]
-[ext_resource type="PackedScene" uid="uid://bwywrgy2s8eli" path="res://assets/objects/slot.tscn" id="3_7g8va"]
+[ext_resource type="PackedScene" uid="uid://bwywrgy2s8eli" path="res://assets/objects/menus/slot.tscn" id="3_7g8va"]
 
 [node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
 script = ExtResource("1_4t73b")
@@ -14,7 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -22,8 +21,8 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Inventory" type="GridContainer" parent="BoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/h_separation = 10
 script = ExtResource("2_jr1ec")
 slot = ExtResource("3_7g8va")
