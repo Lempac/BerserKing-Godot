@@ -14,7 +14,7 @@ speed = 400
 drag = 0.5
 health = 100
 max_health = 100
-regen = 5
+regen_every_second = 5
 touch_damage = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -25,3 +25,9 @@ animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fqst8")
+
+[node name="Regen" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="Regen" to="." method="_on_regen_timeout"]

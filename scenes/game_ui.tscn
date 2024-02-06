@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://assets/scripts/objects/inventory.gd" id="2_jr1ec"]
 [ext_resource type="PackedScene" uid="uid://bwywrgy2s8eli" path="res://assets/objects/menus/slot.tscn" id="3_7g8va"]
 
-[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
+[node name="GameUI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_4t73b")
-inventory = NodePath("BoxContainer/Inventory")
 
 [node name="BoxContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20

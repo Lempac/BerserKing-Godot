@@ -99,4 +99,5 @@ texture_region_size = Vector2i(18, 18)
 7:14/0 = 0
 
 [resource]
+tile_size = Vector2i(18, 18)
 sources/0 = SubResource("TileSetAtlasSource_nfxlo")

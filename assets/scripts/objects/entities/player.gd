@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var drag : float
 @export var health : int
 @export var max_health : int
-@export var regen : int
+@export var regen_every_second : int
 @export var touch_damage : int
 
 func _ready() -> void:
@@ -31,8 +31,11 @@ func _process(delta: float) -> void:
 			var other = last_touch.get_collider()
 			if "health" in other:
 				other.health -= touch_damage
-	
 	if health <= 0:
+		load("res://assets/objects/menus/game_over.tscn").instantiate().show_menu()
 		queue_free()
+
+
+func _on_regen_timeout() -> void:
 	if health < max_health:
-		health = max(max_health, health+regen)
+		health = min(max_health, health+regen_every_second)
