@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/scripts/scenes/game.gd" id="1_dxqvq"]
 [ext_resource type="PackedScene" uid="uid://d3sxsi757kua3" path="res://assets/objects/entities/player.tscn" id="2_qvi8q"]
 [ext_resource type="PackedScene" uid="uid://bjys0cg0pfd2k" path="res://scenes/game_ui.tscn" id="3_2wiq8"]
-[ext_resource type="PackedScene" uid="uid://8o6cc8gbhk38" path="res://assets/objects/entities/spawn_button.tscn" id="4_jhpqy"]
+[ext_resource type="PackedScene" uid="uid://8o6cc8gbhk38" path="res://assets/objects/entities/debug/spawn_button.tscn" id="4_jhpqy"]
 [ext_resource type="PackedScene" uid="uid://bon4qdiqxfnmv" path="res://assets/objects/weapons/glock_17.tscn" id="5_duby4"]
 
 [node name="Game" type="Node"]
