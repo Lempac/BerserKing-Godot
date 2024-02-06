@@ -6,6 +6,7 @@ func show_menu():
 	else:
 		Global.CurrentGameUI.has_menu = true
 	Global.CurrentGameUI.add_child(self)
+	$MarginContainer/VBoxContainer/KillCount.text = "You killed "+str(Global.CurrentGameKillCount)+" enemies!"
 	get_tree().paused = true
 	return true
 

@@ -18,6 +18,8 @@ func add_slot(texture : Texture, item_name : String):
 	add_child(new_slot)
 	new_slot.item_name = item_name
 	new_slot.image.texture = texture
+	if item_name == "Glock 17":
+		new_slot.image.scale = Vector2(0.5, 0.5)
 	
 func check_item_name(item_name : String):
 	var names = get_children().map(func(x): return x.item_name)

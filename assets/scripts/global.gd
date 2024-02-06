@@ -12,6 +12,7 @@ extends Node
 @export var CurrentGameUI : CanvasLayer
 @export var CurrentLevel : TileMap
 @export var CurrentPlayer : CharacterBody2D
+@export var CurrentGameKillCount : int
 
 #endregion
-
+@export var despawn_distance : int = 1200

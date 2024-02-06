@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var health : int
 @export var damage : int
 
+
 func _process(delta: float) -> void:
 	velocity = (Global.CurrentPlayer.position - position).normalized() * speed
 	if move_and_slide():
@@ -13,4 +14,8 @@ func _process(delta: float) -> void:
 			if other.name == "Player" and other.health:
 				other.health -= damage
 	if health <= 0:
+		Global.CurrentGameKillCount += 1
+		queue_free()
+	
+	if Global.despawn_distance < Global.CurrentPlayer.position.distance_to(position):
 		queue_free()
