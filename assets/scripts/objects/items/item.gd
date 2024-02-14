@@ -21,7 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 				print(item_name)
 				if item_name != "Bow":
 					return
-				var bow = load("res://assets/objects/weapons/crossbow/bow.tscn").instantiate()
+				var bow = load("res://assets/objects/weapons/bow/bow.tscn").instantiate()
 				if !Global.CurrentPlayer.has_node("Bow"):
 					Global.CurrentPlayer.add_child(bow)
 	new_item_menu.show_menu(self)

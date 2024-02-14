@@ -5,7 +5,7 @@ extends Node2D
 @onready var anim = $AnimationPlayer
 
 var target : Node2D
-var arrow : Area2D = load("res://assets/objects/weapons/crossbow/arrow.tscn").instantiate()
+var arrow : Area2D = load("res://assets/objects/weapons/bow/arrow.tscn").instantiate()
 var charged = false
 var shoot : Callable
 var rot = 0
