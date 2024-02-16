@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var speed : int
 @export var drag : float
 @export var health : int
@@ -7,13 +8,16 @@ extends CharacterBody2D
 @export var regen_every_second : int
 @export var touch_damage : int
 
+
 func _ready() -> void:
 	Global.CurrentPlayer = self
+	
 
 func _process(delta: float) -> void:
 	var new_velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
 		new_velocity.x += 1
+		
 	if Input.is_action_pressed("move_left"):
 		new_velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
@@ -34,8 +38,17 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		load("res://assets/objects/menus/game_over.tscn").instantiate().show_menu()
 		queue_free()
+		
+	
 
 
 func _on_regen_timeout() -> void:
 	if health < max_health:
 		health = min(max_health, health+regen_every_second)
+		
+		
+
+
+
+
+	
