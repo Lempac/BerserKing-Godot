@@ -75,4 +75,4 @@ position = Vector2(446, 149)
 
 [node name="Enemies" type="Node" parent="."]
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[node name="SpawnTimer" type="Timer" parent="."]
