@@ -21,8 +21,7 @@ touch_damage = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_bwb5h")
-animation = &"attack"
-frame_progress = 0.260796
+animation = &"roll"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
