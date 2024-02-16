@@ -12,14 +12,12 @@ func add_slot(texture : Texture, item_name : String):
 	if pos != -1:
 		get_children()[pos].add()
 		return
-	if get_child_count() == size_inv:
+	if get_child_count() >= size_inv:
 		return
 	var new_slot = slot.instantiate()
 	add_child(new_slot)
 	new_slot.item_name = item_name
 	new_slot.image.texture = texture
-	if item_name == "Glock 17":
-		new_slot.image.scale = Vector2(0.5, 0.5)
 	
 func check_item_name(item_name : String):
 	var names = get_children().map(func(x): return x.item_name)

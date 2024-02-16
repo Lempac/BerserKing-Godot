@@ -60,11 +60,19 @@ item = "res://assets/objects/items/speed.tscn"
 [node name="Node2D" type="Node2D" parent="SpawnButton4"]
 position = Vector2(127, -39)
 
+[node name="SpawnButton5" parent="." instance=ExtResource("4_jhpqy")]
+offset_left = 436.0
+offset_top = 229.0
+offset_right = 534.0
+offset_bottom = 260.0
+item = "res://assets/objects/weapons/bow/bow_item.tscn"
+
+[node name="Node2D" type="Node2D" parent="SpawnButton5"]
+position = Vector2(131, -31)
+
 [node name="Glock_17" parent="." instance=ExtResource("5_duby4")]
 position = Vector2(446, 149)
 
-[node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
+[node name="Enemies" type="Node" parent="."]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

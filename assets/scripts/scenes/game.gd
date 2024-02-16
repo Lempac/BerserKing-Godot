@@ -32,7 +32,7 @@ func spawn():
 	if new_pos.x < player_pos.x + size.x and new_pos.x >  player_pos.x - size.x:
 		new_pos.y = max(new_pos.y, player_pos.y + size.y) if new_pos.y > player_pos.y else min(new_pos.y, player_pos.y - size.y)
 	new_enemy.position = new_pos 
-	add_child(new_enemy)
+	$Enemies.add_child(new_enemy)
 	
 
 

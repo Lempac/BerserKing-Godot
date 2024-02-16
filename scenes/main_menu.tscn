@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bco4cphadrr7o"]
+[gd_scene load_steps=5 format=3 uid="uid://snk2ew3gwu2t"]
 
-[ext_resource type="Script" path="res://assets/scripts/scenes/main_menu.gd" id="1_jp2r1"]
+[ext_resource type="FontFile" uid="uid://1042dducdr4x" path="res://assets/textures/ui_elements/Montjuic.ttf" id="1_p87bn"]
+
+[sub_resource type="Animation" id="Animation_6cqkb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_iha1l"]
+resource_name = "intro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6qpb"]
+_data = {
+"RESET": SubResource("Animation_6cqkb"),
+"intro": SubResource("Animation_iha1l")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,49 +21,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jp2r1")
 
-[node name="Background" type="Panel" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o6qpb")
+}
+
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_right = 179.0
+offset_bottom = 80.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="Title" type="Label" parent="Background/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 61
+theme_override_fonts/font = ExtResource("1_p87bn")
+theme_override_font_sizes/font_size = 80
 text = "Berser King"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PlayButton" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="OptionsButton" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
-[node name="QuitButton" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

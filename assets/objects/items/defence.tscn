@@ -18,6 +18,7 @@ input_pickable = false
 monitorable = false
 script = ExtResource("1_vimgj")
 item_name = "Defence"
+texture = SubResource("AtlasTexture_5b18i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
