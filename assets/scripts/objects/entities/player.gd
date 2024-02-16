@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var speed : int
 @export var drag : float
 @export var health : int
@@ -13,6 +14,7 @@ const roll_length = 0.7
 
 func _ready() -> void:
 	Global.CurrentPlayer = self
+	
 
 func _process(delta: float) -> void:
 	var animation = $AnimatedSprite2D
@@ -50,8 +52,17 @@ func _process(delta: float) -> void:
 		animation.play("death")
 		load("res://assets/objects/menus/game_over.tscn").instantiate().show_menu()
 		queue_free()
+		
+	
 
 
 func _on_regen_timeout() -> void:
 	if health < max_health:
 		health = min(max_health, health+regen_every_second)
+		
+		
+
+
+
+
+	
