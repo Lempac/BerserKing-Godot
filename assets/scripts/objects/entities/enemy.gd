@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 		Global.CurrentGameKillCount += 1
 		queue_free()
 	
-	if Global.despawn_distance < Global.CurrentPlayer.global_position.distance_to(global_position):
+	if Global.CurrentPlayer.global_position.distance_to(global_position) > Global.despawn_distance:
 		queue_free()

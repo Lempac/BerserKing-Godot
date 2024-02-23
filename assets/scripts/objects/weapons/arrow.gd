@@ -11,7 +11,7 @@ func shoot(offset):
 
 func _process(delta: float) -> void:
 	position += Vector2(1, 0).rotated(rotation) * speed
-	if Global.CurrentPlayer.position.distance_to(position) > Global.despawn_distance:
+	if Global.CurrentPlayer.global_position.distance_to(global_position) > Global.despawn_distance:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:

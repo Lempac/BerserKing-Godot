@@ -28,4 +28,5 @@ func _on_ok_button_pressed() -> void:
 func _on_scrap_button_pressed() -> void:
 	Global.CurrentGameUI.has_menu = false
 	get_tree().paused = false
+	item.queue_free()
 	queue_free()

@@ -2,7 +2,7 @@ extends Control
 
 func _on_play_button_pressed():
 	Global.CurrentGameKillCount = 0
-	Global.change_scene("res://assets/scripts/globals/default_transition.tscn", Global.PlayScene, "fade")
+	Global.change_scene("res://assets/scripts/globals/default_transition.tscn", Global.PlayScene, "fade_center")
 
 
 func _on_options_button_pressed():

@@ -17,7 +17,6 @@
 			"title": "Todo",
 			"tasks": [
 				"df0a1bdb-dd7a-4a88-8783-38d0b6a9a7ef",
-				"c869bd62-fe7c-495e-af5b-99e499119ebc",
 				"72d16102-d53b-4058-a34d-ce95794c10e9",
 				"6157189b-9ba2-4f15-a953-38fa382f3a18",
 				"42c06249-4cd6-41f2-bd88-10221aff3f68"
@@ -35,7 +34,9 @@
 		{
 			"uuid": "7eb83d3e-44c7-4b01-b02e-5c4b72692a27",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"c869bd62-fe7c-495e-af5b-99e499119ebc"
+			]
 		}
 	],
 	"tasks": [
@@ -46,12 +47,8 @@
 			"category": "55e6c128-2274-4e5c-836a-12340ddacf30",
 			"steps": [
 				{
-					"details": "spawning in item genrator",
-					"done": false
-				},
-				{
 					"details": "pick_up",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -189,11 +186,11 @@
 			"steps": [
 				{
 					"details": "slots",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "data control",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "event control",
