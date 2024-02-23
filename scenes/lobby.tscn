@@ -13,37 +13,32 @@ layer_0/tile_data = PackedInt32Array(0, 0, 5, 65536, 0, 5, 131072, 0, 5, 1, 1966
 
 [node name="Player" parent="." instance=ExtResource("2_nim8n")]
 z_index = 1
-position = Vector2(668.352, 328.862)
+position = Vector2(1260, 539)
 
-[node name="Mirror" type="Panel" parent="."]
-offset_left = 512.0
-offset_top = 64.0
-offset_right = 576.0
-offset_bottom = 192.0
-script = ExtResource("3_krdx0")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Mirror"]
-layout_mode = 1
+[node name="Mirror" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(50, 100)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 90.0
+offset_right = 568.0
+offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00405, 1)
-stretch = true
+script = ExtResource("3_krdx0")
 
-[node name="SubViewport" type="SubViewport" parent="Mirror/SubViewportContainer"]
-disable_3d = true
+[node name="SubViewport" type="SubViewport" parent="Mirror"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 gui_disable_input = true
-size = Vector2i(64, 128)
-render_target_update_mode = 4
+size = Vector2i(50, 100)
 
-[node name="Camera2D2" type="Camera2D" parent="Mirror/SubViewportContainer/SubViewport"]
-texture_filter = 1
-
-[node name="MirrorPlayer" type="AnimatedSprite2D" parent="Mirror/SubViewportContainer/SubViewport"]
+[node name="MirrorPlayer" type="AnimatedSprite2D" parent="Mirror/SubViewport"]
 sprite_frames = ExtResource("3_ulmq3")
 animation = &"death"
 flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="Mirror/SubViewport/MirrorPlayer"]
+anchor_mode = 0
