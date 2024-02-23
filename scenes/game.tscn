@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceeflcvylasqu"]
+[gd_scene load_steps=7 format=3 uid="uid://ceeflcvylasqu"]
 
 [ext_resource type="Script" path="res://assets/scripts/scenes/game.gd" id="1_dxqvq"]
 [ext_resource type="PackedScene" uid="uid://d3sxsi757kua3" path="res://assets/objects/entities/player.tscn" id="2_qvi8q"]
 [ext_resource type="PackedScene" uid="uid://bjys0cg0pfd2k" path="res://scenes/game_ui.tscn" id="3_2wiq8"]
 [ext_resource type="PackedScene" uid="uid://8o6cc8gbhk38" path="res://assets/objects/entities/debug/spawn_button.tscn" id="4_jhpqy"]
+[ext_resource type="PackedScene" uid="uid://dqqdir8hxkrj1" path="res://assets/scripts/objects/weapons/shuriken/shuriken.tscn" id="4_l7oa8"]
 [ext_resource type="PackedScene" uid="uid://bon4qdiqxfnmv" path="res://assets/objects/weapons/glock_17.tscn" id="5_duby4"]
 
 [node name="Game" type="Node"]
@@ -16,10 +17,8 @@ spawn_offset = Vector2i(100, 100)
 [node name="Player" parent="." instance=ExtResource("2_qvi8q")]
 position = Vector2(180, 133)
 motion_mode = 1
-touch_damage = 5
 
-[node name="SpawnTimer" type="Timer" parent="."]
-autostart = true
+[node name="Shuriken" parent="Player" instance=ExtResource("4_l7oa8")]
 
 [node name="SpawnButton" parent="." instance=ExtResource("4_jhpqy")]
 offset_left = 18.0
@@ -76,4 +75,4 @@ position = Vector2(446, 149)
 
 [node name="Enemies" type="Node" parent="."]
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[node name="SpawnTimer" type="Timer" parent="."]
